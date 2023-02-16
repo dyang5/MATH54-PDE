@@ -17,22 +17,116 @@
 \newenvironment{solution}
   {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
   {\end{proof}}
-  
+
+  \newtheorem{theorem}{Theorem}[section]
+  % \newtheorem{exercise}[theorem]{Exercise}
+  \newtheorem{probleminternal}{Problem}
+
+  \NewDocumentEnvironment{prob}{o}{%
+    \IfValueT{#1}{%
+      \renewcommand{\theprobleminternal}{#1}%
+      \addtocounter{probleminternal}{-1}%
+    }%
+    \probleminternal%
+  }
+  {\endprobleminternal}
+
+  \NewDocumentEnvironment{exercise}{m}{
+    \newtheorem*{ex#1}{Exercise #1}
+    \begin{ex#1}
+}{
+    \end{ex#1}
+}
+
 \newcommand{\N}{\mathbb{N}}
 \setlength\parindent{0pt}
 \begin{document}
 
 	\hrule
 	\begin{center}
-		{\Large Final Project Proposal} \\ % Replace with the homework number
+		{\Large Typos in Logan's \textit{Applied Partial Differential Equations, 3rd ed} Solutions } \\ % Replace with the homework number
 		\vspace{0.2cm}
-		Partial Differential Equations, Spring 2023 \hfill David Yang and Martina Kampel% Replace with your name(s)
+		Spring 2023 \hfill David Yang% Replace with your name(s)
 	\end{center}
 
 \hrule
 
 \vspace{1em}
 
+\section{Chapter 1}
+\setcounter{subsection}{1}
+\subsection{Chapter 1, Section 2}
+\begin{exercise}{7} Solve the initial boundary value problem \[u_t+cu_x = \lambda u, \, \, x, t > 0 \]
+\[u(x,0)=0, \, x>0, \, u(0,t)=g(t), \, t > 0.\]
+\end{exercise}
 
+\begin{solution}
+We should find that $\phi(t) = e^{-\lambda t/c} g(\textcolor{red}{-}t/c)$ (notice the negative in the exponent). This follows from the fact that if $\lambda(-ct)e^{\lambda t} = g(t)$, then substituting $t = -t/c$ gives us the negative in the exponent.
+This gives us $u(x, t) = g(t-x/c)e^{-\lambda x/c},$ in $0 \leq x < ct$, which matches the solutions.
+\end{solution}
 
+\begin{exercise}{12} Find a formula that implicitly defines the solution$ u = u(x, t)$ of the initial value problem for the reaction-advection equation
+\[ u_t + cu_x = -\frac{\alpha u}{\beta + u}, \, \, x \in \mathbb{R}, \, t > 0, \] 
+\[ u(x,0) = f(x), \, \, x \in \mathbb{R} \]
+  Here, $v, \alpha, \beta$ are positive constants. Show from the implicit formula that you can always solve for $u$ in terms of $x$ and $t$.
+  \end{exercise}
+  
+  \begin{solution}
+  \textcolor{red}{$f(x)$ should be $f(x-ct)$, as we need to change back to $x-t$ coordinates.}
+  \end{solution}
+
+\subsection{Chapter 1, Section 3}
+\begin{exercise}{2}
+  Let $u = u(x, t)$ satisfy the heat flow model 
+  \[ u_t =ku_{xx}, \, \, 0<x<l, \, t>0 \]
+  \[ u(0,t) = u(l,t) = 0, \, \, t > 0,\]
+  \[ u(x,0)=u_0(x), 0 \leq x \leq l.\] 
+  
+  Show that
+  \[ \int_0^l u(x, t)^2 \, dx \leq \int_0 u_0(x)^2 \, dx, \, t \geq 0. \]
+  
+  Hint: Let $E(t) = \int_0^l u(x, t)^2 \, dx$ and show that $E'(t) \leq 0$. What can be said about $u(x, t)$ if $u_0(x) = 0$?
+\end{exercise}
+
+\begin{solution}
+We have that $E(t) \leq E(0) = \int_0^l u_0(x)^{\textcolor{red}{2}} \, dx.$ This does not affect the solution, though, as if $u_0 \equiv 0$, then $E(0) = 0$ still.
+
+\end{solution}
+
+\begin{exercise}{6}
+Heat flow in a metal rod with a unit internal heat source is governed by the problem
+\[u_t=ku_{xx}+1, \, 0<x<1, \, t>0, \]
+\[u(0,t)=0, \, u(1,t)=1, \, t>0. \]
+What will be the steady-state temperature in the bar after a long time? Does it matter that no initial condition is given?
+\end{exercise}
+
+\begin{solution}
+  The answer should be \[u(x) = -\frac{1}{2k}x^2 \textcolor{red}{+} \left(1+\frac{1}{2k}\right) x.\]
+
+  Originally, there is a $=$ sign rather than a $+$.
+\end{solution}
+
+\setcounter{subsection}{4}
+\subsection{Chapter 1, Section 5}
+
+\begin{exercise}{5}The total energy of the string governed by equation (1.37) with boundary conditions (1.40) is defined by \[E(t) = \int_{0}^{\ell} \left( \frac{1}{2} \rho_0 u_t^2 + \frac{1}{2} \tau_0 u_x^2 \right) \, dx.\]
+Show that the total energy is constant for all $ t \geq 0$. Hint: Multiply (1.37) by $u_t$ and note that $(u_t^2)_t = 2u_tu_{tt}$ and $(u_tu_x)_x = u_tu_{xx} + u_{tx}u_x.$ Then
+show that \[\frac{d}{dt} \int_{0}^{\ell} \rho_0 u_t^2 \, dx= [\textcolor{red}{2}\tau_0u_tu_x]_0^\ell - \frac{d}{dt}  \int_{0}^{\ell} \tau_0 u_x^2 \, dx.\]
+\end{exercise}
+
+\begin{solution}
+The hint should include an extra factor of $2$ (colored in \textcolor{red}{red}).
+\end{solution}
+
+\begin{exercise}{8}
+  At the end $(x = 0)$ of a long tube $(x \geq 0)$ the density of air changes according to the formula $\tilde{\rho}(0,t) = 1 - \cos 2t$ for $t \geq 0,$ 
+  and $\tilde{\rho}(0,t) = 0$ for $t < 0$. Find a solution to the wave equation in the domain $x>0, -\infty<t< \infty$, in the form of a 
+  right-traveling wave that satisfies the given boundary condition. Take $c = 1$ and plot the solution surface.
+\end{exercise}
+
+\begin{solution}
+We should have that \[\tilde{\rho}(0,t) = F(-ct) = 1- \cos(\textcolor{red}{2}t).\] This tells us that \[F(t) = 1-\cos(\textcolor{red}{2}(t - x/c)). \]
+
+Notice that the factors of $2$ are inside the $\cos$ term rather than outside (as a coefficient).
+\end{solution}
 \end{document}
