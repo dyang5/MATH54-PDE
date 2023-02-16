@@ -1,0 +1,48 @@
+\documentclass[11pt]{article}
+\usepackage{graphics}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+  
+\newcommand{\N}{\mathbb{N}}
+\setlength\parindent{0pt}
+\begin{document}
+
+	\hrule
+	\begin{center}
+		{\Large Final Project Proposal} \\ % Replace with the homework number
+		\vspace{0.2cm}
+		Partial Differential Equations, Spring 2023 \hfill David Yang and Martina Kampel% Replace with your name(s)
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\begin{enumerate}
+    \item The PDE that we plan on writing about in our report is the \textbf{McKendrick–von Forester equation}, discussed in Logan on page 230. The general form of the PDE is 
+    \[ u_t = -u_a - m(a)u, \] a form of the advection equation where $m(a)$ represents the maternity rate at some age and $u(a, t)$ represents the density at age $a$ and time $t$. \\
+    
+    This PDE appears in the context of \textbf{age-structured models}, i.e. demographic models where the population at time $t$ has an age distribution superimposed on it, and has general implications in mathematical biology.
+    \item Our group consists of David Yang and Martina Kampel.
+    \item We plan to derive the age-structured model with this equation, as well as discuss how one might go about finding the ``growth" rate and stable age structure solution, as presented in Chapter 5.1 of our textbook. \\
+
+    Our main resources will be Chapter 5.1 of Logan and other related papers, such as this \href{https://pdf.sciencedirectassets.com/271552/1-s2.0-S0895717700X00556/1-s2.0-S0895717797001659/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFMaCXVzLWVhc3QtMSJGMEQCIHGjPP3QmYF7lUpMar3X0iPw%2BLTC6Mp4J%2B5V6wRAEs3IAiBW5y4AQyZbjSqaBTOsUVC%2FMm57XAwDj0s4ZweuzxmG7irVBAjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAUaDDA1OTAwMzU0Njg2NSIMr81u3tAkt6yfEZHdKqkEv%2BahXl5OAN%2Bblv%2FtdKKEv6JHIHgd4OCYTCgbLaT%2BpPpYKkChw84iFXE%2Fb8g1ktet8mDHeZOg60OeQn%2BL0X5Co4sBo10210NMuKzpGVvHTu3xAvXlgmGPJzOuQeAMzvKPB2wwwvN8jFm9yYEX3JmdcPMklu3lJ4GfEcgJSqb0oFMKfvLumzYSxrIKozz3xDOF8JzRvSFebaucogQrroxIg3N1M0AxZVy4MztqQA%2BLfuWIG6DzYXHJRJNWJbNUc67u9rqUXMJXwk96OeeDQzlmjjwHPtdgChW4jj1aEWn5x%2BhDEQv3aubo3rsCP682tjUeDAZDpGn0RtZ5QR46474EM4I5FYADTpHkgWFd%2F2YU4OVcUQq26WzQ4XKZMZsNat9eoXbioErq9WRFoC3rNAu2rqOEygoi9NGZUPbb80hB06Caki546NxZmJ3gov%2FDGGXUEsuNol8K04CkZcpftvJccTinD3DxB3v7wp35%2B1OQCS99exlfA%2BstooihGByg0%2F1u4Yj5hirQ0qPIBd7ePGj15wYb7RRuAhiMz%2Fx2iy3%2BUz23brTyM%2Ft6FxWO%2FjJQ4BQKdcvzMYdggNPEiyNypKRXK%2BnWzQL5o20QY2J%2Bfv9ZVVB%2BAT2%2FaFtiM3qVClr81xo2SIEjsW9xVWCxhkOswvma5Z7rYSx4DJZ6i6hwYcVoCyjeftEeMjDQ7o%2FlSlJ2Kf%2FAfFZiXPrhrLL3a1AsxM47hj%2BSaPjYoqx7ZDDZ3aSfBjqqAbfsUaPb7RmlHKItHZmDsZHDCysfih1ZAYGPieeZqyOhMwr1MnPPkbL1%2FWompvEt2QJiJnBSAo6qiyIeVF3MB%2FWhyoEHNUrYb80D5zyeBTsgrz7yHGfu7yGCeeidMV3oDAga0teMt3dJ1BR0NUrRG8r4KD%2F5zk5gi7yJs05VpFQwJTsVYLhlftP5qomVT2M4e7%2B1LVZsMNqzO8JrgBAnJsPwXc1xHw1UVH19&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230212T191601Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTYXJCA3JUT%2F20230212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=79be86eab77e3a5c0e64838e374d887d34b5c382c680961427e0ac4e1b8acb26&hash=8b1c8527e1ef0c5108cb085d71704f32d6f1e104d4c230540ce33e89da7f6a49&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S0895717797001659&tid=spdf-1c2a0f02-f363-44a7-b414-315d2a5071ca&sid=5ab4ad84655bd84f5a282503effe58bea59fgxrqa&type=client&tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&ua=0f16505856500258515100&rr=7987a806ddd88cca&cc=us}{one}.
+\end{enumerate}
+
+
+\end{document}

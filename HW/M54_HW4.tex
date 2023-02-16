@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\usepackage{graphics}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage[margin=1in]{geometry}
+
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+  
+\newcommand{\N}{\mathbb{N}}
+\setlength\parindent{0pt}
+\begin{document}
+
+	\hrule
+	\begin{center}
+		{\Large Homework 4} \\ % Replace with the homework number
+		\vspace{0.2cm}
+		Partial Differential Equations, Spring 2023 \hfill David Yang % Replace with your name(s)
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\underline{Logan Chapter 1.7, Problem 6} \\
+
+\textbf{(Dirichlet's Principle) Suppose that $u$ satisfies the Dirichlet problem} \[ \Delta u = 0, \, \, (x, y, z) \in \Omega, \] \[ u = f, \, \, (x, y, z) \in \delta \Omega.\]
+\textbf{Show that}
+\[ \int_{\Omega} \mid \mathrm{grad} \, u \mid^2 dV \leq \int_{\Omega} \mid \mathrm{grad} \, w \mid^2 dV\]
+
+\textbf{for any other function $w$ that satisfies $w = f$ on $\delta \Omega.$ Thus, the solution to the Dirichlet problem \textit{minimizes the energy} }
+\[ \int_{\Omega} \mid \mathrm{grad} \, w \mid^2 dV \]
+
+\textbf{Hint: Let $w = u+v$, where $v = 0$ on $\delta \Omega$, and expand $\int_{\Omega} \mid \mathrm{grad} \, w \mid^2 dV$ using Green's identity.}
+
+
+
+\begin{solution} 
+We will begin with the hint: let $w = u + v$ where $v = 0$ on $\delta \Omega$. Then, plugging in $w = u + v$ into $\int_{\Omega} \mid \mathrm{grad} \, w \mid^2 dV$ gives
+
+\[ \int_{\Omega} \mid \mathrm{grad} \, w \mid^2 dV = \int_{\Omega} \mid \mathrm{grad} \, (u+v) \mid^2 dV . \]
+
+Note that $\mathrm{grad} \, (u+v) = \mathrm{grad} \, u + \mathrm{grad} \, v.$ Using this fact and expanding the above equation, we find that
+\begin{align*} \int_{\Omega} \mid \mathrm{grad} \, w \mid^2 dV &= \int_{\Omega} \mid \mathrm{grad} \, u + \mathrm{grad} \, v \mid ^ 2 dV \\
+&= \int_{\Omega} \mid \mathrm{grad} \, (u) \mid^2 \, dV + 2\int_{\Omega} \mathrm{grad} \, (u) \cdot \mathrm{grad} \, (v) \, dV + \int_{\Omega} \mid \mathrm{grad} \, (v) \mid^2 \, dV \end{align*}
+
+
+By Equation 4.62 (Green's First Identity) in Logan, however, we have that
+
+\[ \int_\Omega \mathrm{grad} \, (u) \mathrm{grad} \, (v) \, dV = \int_{\Omega} v \, \mathrm{grad} \, (u) \cdot \vec{n} \, dA - \int_{\Omega} v \Delta u\, dV. \]
+
+Furthermore, we've defined $v = 0$ on $\delta \Omega$, and $\Delta u = 0$ on $\Omega$. Thus, plugging in these values to the above equation, we have that
+
+\[ \int_\Omega \mathrm{grad} \, (u) \mathrm{grad} \, (v) \, dV = \int_{\Omega} v \cdot 0 \cdot \vec{n} \, dA - \int_{\Omega} v \cdot 0 \, dV = 0. \]
+
+Since $\int_\Omega \mathrm{grad} \, (u) \mathrm{grad} \, (v) \, dV = 2 \int_\Omega \mathrm{grad} \, (u) \mathrm{grad} \, (v) \, dV = 0$, we can plug this into our equation for
+$\int_\Omega \mid \mathrm{grad} \, w \mid ^2 \, dV$ to get
+
+\begin{align*} \int_{\Omega} \mid \mathrm{grad} \, w \mid^2 dV &= \int_{\Omega} \mid \mathrm{grad} \, (u) \mid^2 \, dV + 2\int_{\Omega} \mathrm{grad} \, (u) \cdot \mathrm{grad} \, (v) \, dV + \int_{\Omega} \mid \mathrm{grad} \, (v) \mid^2 \, dV \\
+&= \int_{\Omega} \mid \mathrm{grad} \, (u) \mid ^2 \, dV + \int_{\Omega} \mid \mathrm{grad} \, (v) \mid^2 \, dV\end{align*}
+
+Finally, since \[ \int_{\Omega} \mid \mathrm{grad} \, (v)\mid ^2 \, dV \geq 0 \] by inspection, we have that
+
+\[ \int_{\Omega} \mid \mathrm{grad} \, (u) \mid^2 \, dV \leq \int_{\Omega} \mid \mathrm{grad} \, (w) \mid^2 \, dV\]
+
+as desired. This tells us that the solution to the Dirichlet problem \textit{minimizes the energy}
+\[ \int_{\Omega} \mid \mathrm{grad} \, w \mid^2 dV. \] \end{solution}
+
+\newpage
+
+\underline{Dirichlet's Principle Follow-Up} \\
+
+\textbf{Use Dirichlet's principle (in particular, the inequality half-way down page $65$ in $\# 6,$ Chapter $1.7$) to prove that solutions are unique (assuming they exist) for Laplace's equation with Dirichlet boundary conditions:}
+
+\[ \Delta u = 0, \, \, (x, y, z) \in \Omega, \] \[ u = f, \, \, (x, y, z) \in \delta \Omega.\]
+
+\begin{solution}
+Let us assume for the sake of contradiction that there are two distinct solutions $u, w$ to Laplace's equation with Dirichlet boundary conditions. By Dirichlet's principle, we know that
+\[ \int_{\Omega} \mid \mathrm{grad} \, u \mid^2 dV \leq \int_{\Omega} \mid \mathrm{grad} \, w \mid^2 dV \text { and } \int_{\Omega} \mid \mathrm{grad} \, w \mid^2 dV \leq \int_{\Omega} \mid \mathrm{grad} \, u \mid^2 dV\]
+
+Equivalently, we must have that
+\[ \int_{\Omega} \mid \mathrm{grad} \, u \mid^2 dV = \int_{\Omega} \mid \mathrm{grad} \, w \mid^2 dV. \]
+
+From the hint to the previous problem, note that since $w$ satisfies $w = f$ on $\delta \Omega$, we can write $w = u + v$, where $v = 0$ on $\delta \Omega.$ Following the same procedure as before, we have that
+\begin{align*}
+    \int_{\Omega} \mid  \mathrm{grad} \, w \mid^2 dV &= \int_\Omega \mid \mathrm{grad} \, (u + v) \mid ^2 dV \\
+    &= \int_{\Omega} \mid \mathrm{grad} \, (u) \mid^2 \, dV + 2\int_{\Omega} \mathrm{grad} \, (u) \cdot \mathrm{grad} \, (v) \, dV + \int_{\Omega} \mid \mathrm{grad} \, (v) \mid^2 \, dV.
+\end{align*}
+
+As we showed in the previous problem with Green's Identity, $2\int_{\Omega} \mathrm{grad} \, (u) \cdot \mathrm{grad} \, (v) \, dV = 0$, and so we have that 
+
+\[ \int_{\Omega} \mid  \mathrm{grad} \, w \mid^2 dV  = \int_{\Omega} \mid \mathrm{grad} \, (u) \mid^2 \, dV + \int_{\Omega} \mid \mathrm{grad} \, (v) \mid^2 \, dV.\]
+
+However, from Dirichlet's Principle, we also know that \[ \int_{\Omega} \mid \mathrm{grad} \, u \mid^2 dV = \int_{\Omega} \mid \mathrm{grad} \, w \mid^2 dV. \]
+
+Combining this with the above equation, we know that \[\int_{\Omega} \mid \mathrm{grad} \, (v) \mid^2 \, dV = 0.\] 
+
+Since $\mid \mathrm{grad} \, (v) \mid^2 \geq 0$, we know that for this equation to hold, we must have that $\mathrm{grad} \, (v) = 0$ in $\Omega.$ However, we also know by definition that $v = 0$ on $\delta \Omega.$ Since $v = 0$ on $\delta \Omega$ and $\nabla v = 0$ in $\Omega$, we know that $v = 0$ for $\Omega \cup \delta \Omega.$ \\
+
+Thus, $$w = u + v = u + 0 = u,$$ and we find that $w, u$ are not distinct solutions.  \\
+
+Thus, by contradiction, solutions are unique (if they exist) for Laplace's equation with Dirichlet boundary conditions.
+\end{solution}
+
+\end{document}

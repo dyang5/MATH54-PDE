@@ -1,0 +1,65 @@
+\documentclass[11pt]{article}
+\usepackage{graphics}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage[margin=1in]{geometry}
+
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+  
+\newcommand{\N}{\mathbb{N}}
+\setlength\parindent{0pt}
+\begin{document}
+
+	\hrule
+	\begin{center}
+		{\Large Homework 3} \\ % Replace with the homework number
+		\vspace{0.2cm}
+		Partial Differential Equations, Spring 2023 \hfill David Yang % Replace with your name(s)
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\underline{Logan Chapter 1.5, Problem 5} \\
+
+\textbf{The total energy of the string governed by equation (1.37) with boundary conditions (1.40) is defined by $$E(t) = \int_{0}^{\ell} \left( \frac{1}{2} \rho_0 u_t^2 + \frac{1}{2} \tau_0 u_x^2 \right) \, dx.$$}
+
+\textbf{Show that the total energy is constant for all $ t \geq 0$. Hint: Multiply (1.37) by $u_t$ and note that $(u_t^2)_t = 2u_tu_{tt}$ and $(u_tu_x)_x = u_tu_{xx} + u_{tx}u_x.$ Then
+show that $$\frac{d}{dt} \int_{0}^{\ell} \rho_0 u_t^2 \, dx= [2\tau_0u_tu_x]_0^\ell - \frac{d}{dt}  \int_{0}^{\ell} \tau_0 u_x^2 \, dx.$$ }
+
+\begin{solution} 
+We follow the hint provided in the book. We begin with equation (1.37): $$ \rho_0 (x) u_{tt} = \tau_0 u_{xx}.$$
+
+Multiplying both sides by $u_t$, we get that $$ \rho_0 (x) u_t u_{tt} = \tau_0 u_t u_{xx}.$$
+
+Since $(u_t^2)_t = 2u_tu_{tt}$ and $(u_tu_x)_x = u_tu_{xx} + u_{tx} u_x,$ we have that $$u_tu_{tt} = \frac{1}{2}\left(u_t^2\right)_t \text { and } u_tu_{xx} = (u_tu_x)_x - u_{tx}u_x.$$
+
+Substituting these results into the equation $ \rho_0 (x) u_t u_{tt} = \tau_0 u_t u_{xx}$, we find that
+
+$$ \frac{1}{2} \left(u_t^2\right)_t \rho_0 = \tau_0 \left( (u_tu_x)_x - u_{tx}u_x\right).$$
+
+Integrating both sides of the equation with respect to $x$ and bounds $x=0$ and $x = \ell$, we get that
+
+$$ \int_0^{\ell} \frac{1}{2} \left(u_t^2\right)_t \rho_0 \, dx = \tau_0 \int_0^{\ell} (u_tu_x)_x - u_{tx} u_x \, dx.$$
+
+
+Splitting the integral on the right-hand side into two separate integrals and simplifying, we get that
+
+$$ \int_0^{\ell} \frac{1}{2} \left(u_t^2\right)_t \rho_0 \, dx = [\tau_0u_tu_x]_0^{\ell} - \int_0^{\ell} \tau_0u_{tx} u_x \, dx.$$
+
+We can simplify further -- note that we can move $\frac{d}{dt}$ out of the left integral and that $$\int_0^{\ell} \tau_0u_{tx} u_x \, dx = \frac{1}{2} \frac{d}{dt} \int_0^{\ell} u_x^2.$$
+
+Substituting these results into the above equation, we get
+$$ \frac{d}{dt} \int_0^{\ell} \frac{1}{2} u_t^2 \rho_0 \, dx = [\tau_0u_tu_x]_0^{\ell} - \frac{1}{2} \frac{d}{dt} \int_0^{\ell} \tau_0u_x^2 \, dx.$$
+
+Thus, multiplying both sides by two gives us the desired result:
+$$\frac{d}{dt} \int_{0}^{\ell} \rho_0 u_t^2 \, dx= [2\tau_0u_tu_x]_0^\ell - \frac{d}{dt}  \int_{0}^{\ell} \tau_0 u_x^2 \, dx.$$ 
+
+\end{solution}
+\end{document}
