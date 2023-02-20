@@ -1,0 +1,52 @@
+\documentclass[11pt]{article}
+\usepackage{graphics}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+  
+\newcommand{\N}{\mathbb{N}}
+\setlength\parindent{0pt}
+\begin{document}
+
+	\hrule
+	\begin{center}
+		{\Large Homework 5} \\ % Replace with the homework number
+		\vspace{0.2cm}
+		Partial Differential Equations, Spring 2023 \hfill David Yang % Replace with your name(s)
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\underline{Logan Chapter 1.7, Problem 6} \\
+
+\textbf{Consider the PDE \[u_{xx} - 3u_{xt} - 4u_{tt} = 0 \, \, \, \, \, \text{ for } x \in \mathbb{R} \text { and } t > 0\] with initial conditions 
+\[u(x, 0) = x^2 \, \, \, \, \, \text{ and } \, \, \, \, \, u_t(x, 0) = e^x \text{ for } x \in \mathbb{R}\]}
+\begin{enumerate}[a)]
+\item \textbf{Calculate the discriminant and classify the PDE as hyperbolic, parabolic, or elliptic.} 
+\begin{solution}
+This PDE is a second-order differential equation of the form $Au_{xx} + Bu_{xt} + Cu_{tt} = 0$, with $A = 1$, $B = -3$, and $C=-4.$ \\
+
+The discriminant of the PDE, then, is \[D = B^2 - 4AC = (-3)^2 - 4(1)(-4) = \boxed{25} > 0.\]
+Since this PDE has a positive discriminant, the PDE is \boxed{\text{hyperbolic}}.
+\end{solution}
+
+\item \textbf{Solve the PDE.}
+\begin{solution}
+
+\end{solution}
+\end{enumerate}
+
+
+
+
+\end{document}
