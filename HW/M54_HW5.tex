@@ -27,7 +27,7 @@
 
 \vspace{1em}
 
-\underline{Logan Chapter 1.7, Problem 6} \\
+\underline{HW 5 Problem} \\
 
 \textbf{Consider the PDE \[u_{xx} - 3u_{xt} - 4u_{tt} = 0 \, \, \, \, \, \text{ for } x \in \mathbb{R} \text { and } t > 0\] with initial conditions 
 \[u(x, 0) = x^2 \, \, \, \, \, \text{ and } \, \, \, \, \, u_t(x, 0) = e^x \text{ for } x \in \mathbb{R}\]}
@@ -48,7 +48,7 @@ We will make a change of variables of the form
 \tau = cx+dt
 \end{cases},\]
 
-as done in Logan, page 75. Since the PDE is hyperbolic, we can follow page 75 once again. We choose $ a = c = 1$, and get that
+as done in Logan, page 75. Since the PDE is hyperbolic, we can follow the procedure on page 75 once again. We choose $ a = c = 1$, and get that
 \[ b = \frac{-B + \sqrt{D}}{2C} = \frac{-(-3) + \sqrt{25}}{2(-4)} = -1 \]
 \[ d =  \frac{-B - \sqrt{D}}{2C} = \frac{-(-3) - \sqrt{25}}{2(-4)} = \frac{1}{4}. \]
 
@@ -57,7 +57,6 @@ Thus, our change of coordinates are
 	\xi = x - t \\
 	\tau = x + \frac{1}{4}t
 	\end{cases}.\]
-\end{solution}
 
 Since our original PDE had no lower order terms, this change of coordinates transforms our PDE into the canonical form \[U_{\xi\tau} = 0.\]
 
@@ -65,10 +64,8 @@ We can now simply integrate twice to solve for $U$. First, integrating both side
 \[U_{\xi} = \tilde{f}(\xi) \]
 
 where $\tilde{f}(\xi)$ is a function of $\xi.$ Integrating again, but this time with respect to $\xi$, we get that
-
 \[U = f(\xi) + g(\tau), \]
-
-where $f(\xi) = \int \tilde{f}$ is simply another function of $\xi$. \\
+where $f(\xi) = \int \tilde{f} \, d\xi$ is simply another function of $\xi$. \\
 
 Our change of coordinates was $\xi = x - t$ and $\tau = x + \frac{1}{4}t$. Reverting our solution back to $x-t$ coordinates, we have that
 \[ u(x, t) = f(x-t) + g\left(x+\frac{1}{4}t\right). \]
@@ -99,7 +96,7 @@ Taking the derivative of the first equation, we get the new system
 We can now solve for $f'(x)$ and $g'(x)$. To solve for $g'(x)$, we add the two equations and multiply both sides by $\frac{4}{5}$ to get 
 \[g'(x) = \frac{4}{5} \left(2x+e^x\right) = \frac{8x}{5} + \frac{4}{5}e^x.\]
 
-We can then get $f'(x)$ from the first equation: \[f'(x) = \frac{2x}{5} - \frac{4}{5}e^x.\]
+We can then get $f'(x)$ from the first equation. Since $f'(x) = 2x - g'(x)$, we have \[f'(x) = \frac{2x}{5} - \frac{4}{5}e^x.\]
 
 We can now integrate these two equations to get $f(x)$ and $g(x)$. We find that
 \[f(x) = \frac{x^2}{5} -\frac{4}{5}e^x \, \, \, \text { and } \, \, \, g(x) = \frac{4x^2}{5} + \frac{4}{5}e^x. \]
@@ -114,8 +111,8 @@ Substituting the equations we found for $f(x)$ and $g(x)$, we get that
 
 and so our solution that satisfies the original PDE and its initial conditions is 
 \[ \boxed{u(x, t) = \left(\frac{(x-t)^2}{5} -\frac{4}{5}e^{x-t} \right) + \left(\frac{4(x+\frac{1}{4}t)^2}{5}+ \frac{4}{5}e^{x+\frac{1}{4}t}\right) }.\]
+\end{solution} 
 \end{enumerate}
-
 
 
 
