@@ -29,7 +29,26 @@
 
 \underline{HW 6 Problems} 
 \begin{enumerate}
-    \item 
+\item \textbf{Find a solution to the diffusion PDE} \[ u_t - u_{xx} = 0 \, \, \, \text{for } x \in \mathbb{R}, \, t > 0\] \textbf{with initial value} 
+\[ u(x, 0) = e^{-x^2/4} \, \, \, \text{for } x \in \mathbb{R}.\]
+
+\item \textbf{Show that your solution to \# 1 satisfies the property that, for all $t > 0$,}
+\[ \int_{-\infty}^{\infty} u(x, t) \, dx = \int_{-\infty}^{\infty} u(x, 0) \, dx.  \]
+\textbf{In other words, $\int_{-\infty}^{\infty} u(x, t) \, dx$ is a \textit{conserved quantity} (constant with respect to $t$). }
+
+\item \begin{enumerate}
+	
+\item \textbf{If $u$ solves the diffusion equation on the infinite domain $(x \in \mathbb{R})$, with bounded initial value $u(x, 0) = \phi(x)$ that has the property that}
+\[ \lim_{x \rightarrow -\infty} \phi(x) = a \, \, \, \textbf{and} \, \, \, \lim_{x \rightarrow \infty} \phi(x) = b \, \, \, \, \, \,\textbf{(a, b constants)}.\]
+
+\textbf{What is the value of $\lim_{t\rightarrow \infty} u(x, t)$?}
+
+\item \textbf{Review Eq 2.5 on page 82 of Logan, which is a solution for the PDE}
+\[ w_t = kw_{xx} \, \, \, \text{for } x \in \mathbb{R}, \, t > 0\]
+\[ w(x, 0) = 0 \text{for } x < 0 \, ; \, w(x, 0) = 1 \text{for } x > 0.\]
+
+\textbf{What is $\lim_{t \rightarrow \infty} w(x, t)$ and does this agree with your result in 3(a)?}
+\end{enumerate}
 \end{enumerate}
 
 
