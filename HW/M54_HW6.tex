@@ -69,11 +69,17 @@ Thus, our solution to the given diffusion PDE with the given initial value is
 
 \end{solution}
 
-
+\newpage
 
 \item \textbf{Show that your solution to \# 1 satisfies the property that, for all $t > 0$,}
 \[ \int_{-\infty}^{\infty} u(x, t) \, dx = \int_{-\infty}^{\infty} u(x, 0) \, dx.  \]
 \textbf{In other words, $\int_{-\infty}^{\infty} u(x, t) \, dx$ is a \textit{conserved quantity} (constant with respect to $t$). }
+
+To show that this property holds, we will show that the left and right hand sides simplify to the same expression. We will begin by working with the left-hand side. \\
+
+Plugging in our solution for $u(x, t)$ into the left-hand side of the equation, we have that
+\[ \int_{-\infty}^{\infty} u(x, t) \, dx = \int_{-\infty}^{\infty}  \frac{1}{\sqrt{t+1}} e^{-\frac{x^2}{4(t+1)}} \, dx \]
+
 
 \item \begin{enumerate}
 	
