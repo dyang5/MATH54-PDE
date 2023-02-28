@@ -32,6 +32,13 @@
 \item \textbf{Find a solution to the diffusion PDE} \[ u_t - u_{xx} = 0 \, \, \, \text{for } x \in \mathbb{R}, \, t > 0\] \textbf{with initial value} 
 \[ u(x, 0) = e^{-x^2/4} \, \, \, \text{for } x \in \mathbb{R}.\]
 
+\begin{solution}
+We will use the solution formula for the diffusion equation on an unbounded domain. Recall that the solution to the diffusion PDE $u_t - ku_{xx} = 0$ on the unbounded domain with initial value $u(x, 0) = \phi(x)$ is
+is \[ u(x, t) = \frac{1}{\sqrt{4\pi k t}} \int_{-\infty}^{\infty} \phi(y) e^{-(x-y)^2/4kt} \, dy.\]
+
+Applying the solution formula to this problem (where $k=1$ and $\phi(x) = e^{-x^2/4}$), we have that the solution to the given diffusion PDE on the unbounded domain is
+\end{solution}
+
 \item \textbf{Show that your solution to \# 1 satisfies the property that, for all $t > 0$,}
 \[ \int_{-\infty}^{\infty} u(x, t) \, dx = \int_{-\infty}^{\infty} u(x, 0) \, dx.  \]
 \textbf{In other words, $\int_{-\infty}^{\infty} u(x, t) \, dx$ is a \textit{conserved quantity} (constant with respect to $t$). }
