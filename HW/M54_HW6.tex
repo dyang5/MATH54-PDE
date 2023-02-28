@@ -75,11 +75,31 @@ Thus, our solution to the given diffusion PDE with the given initial value is
 \[ \int_{-\infty}^{\infty} u(x, t) \, dx = \int_{-\infty}^{\infty} u(x, 0) \, dx.  \]
 \textbf{In other words, $\int_{-\infty}^{\infty} u(x, t) \, dx$ is a \textit{conserved quantity} (constant with respect to $t$). }
 
-To show that this property holds, we will show that the left and right hand sides simplify to the same expression. We will begin by working with the left-hand side. \\
+\begin{solution}To show that this property holds, we will show that the left and right hand sides simplify to the same expression. We will begin by working with the left-hand side. \\
 
-Plugging in our solution for $u(x, t)$ into the left-hand side of the equation, we have that
-\[ \int_{-\infty}^{\infty} u(x, t) \, dx = \int_{-\infty}^{\infty}  \frac{1}{\sqrt{t+1}} e^{-\frac{x^2}{4(t+1)}} \, dx \]
+Plugging in our solution for $u(x, t)$ when $t > 0$ into the left-hand side of the equation, we have that
+\[ \int_{-\infty}^{\infty} u(x, t) \, dx = \int_{-\infty}^{\infty}  \frac{1}{\sqrt{t+1}} e^{-\frac{x^2}{4(t+1)}} \, dx.\]
 
+Let us make the substitution $y = \frac{x}{\sqrt{4(t+1)}}.$ We also have that $dy = \frac{1}{\sqrt{4(t+1)}} \, dx.$ Substituting this into our integral, we get that
+\begin{align*} \int_{-\infty}^{\infty} u(x, t) \, dx &= \int_{-\infty}^{\infty}  \frac{1}{\sqrt{t+1}} e^{-\frac{x^2}{4(t+1)}} \, dx \\
+&= 2 \int_{-\infty}^{\infty}  \frac{1}{\sqrt{4(t+1)}} e^{-\frac{x^2}{4(t+1)}} \, dx \\
+&= 2 \int_{-\infty}^{\infty} e^{-y^2} \, dy.\end{align*}
+
+We will now show that the right-hand side $\int_{-\infty}^{\infty} u(x, 0) \, dx$ can be rewritten in the same form. Plugging in the initial condition $u(x,0) = e^{-x^2/4}$ into this integral, we get
+\[ \int_{-\infty}^{\infty} u(x, 0) \, dx = \int_{-\infty}^{\infty} e^{-\frac{x^2}{4}} \, dx.\]
+
+Let us now make the substitution $y = \frac{x}{2}$. This also gives us $dy = \frac{1}{2} \, dx$. Substituting this back into our integral, we get
+\begin{align*}  \int_{-\infty}^{\infty} u(x, 0) \, dx &= \int_{-\infty}^{\infty}  e^{-\frac{x^2}{4}} \, dx \\
+&= 2 \int_{-\infty}^{\infty}  \frac{1}{2}e^{-\frac{x^2}{4}} \, dx \\
+&= 2 \int_{-\infty}^{\infty}  e^{-y^2} \, dy.
+\end{align*}
+
+Thus, we see that \[ \int_{-\infty}^{\infty} u(x, t) \, dx = \int_{-\infty}^{\infty} u(x, 0) \, dx =  2 \int_{-\infty}^{\infty}  e^{-y^2} \, dy = 2\sqrt{\pi}. \]
+
+and so we find that $ \int_{-\infty}^{\infty} u(x, t) \, dx$ is a \textit{conserved quantity} (constant with respect to $t$), with $\int_{-\infty}^{\infty} u(x, t) \, dx = 2\sqrt{\pi}$ for all $t \geq 0$, as desired. \end{solution}
+
+
+\newpage
 
 \item \begin{enumerate}
 	
@@ -88,9 +108,20 @@ Plugging in our solution for $u(x, t)$ into the left-hand side of the equation, 
 
 \textbf{What is the value of $\lim_{t\rightarrow \infty} u(x, t)$?}
 
+\begin{solution}
+$u$ is a solution to the diffusion equation on the infinite domain with bounded initial value $u(x, 0) = \phi(x)$. Consequently, the solution (in the Poisson Integral representation form) is 
+\[ u(x, t) = \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\infty} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr.\]
+
+Splitting the integral up into two separate integrals, we get that
+\[ u(x, t) = \frac{1}{\sqrt{\pi}} \left[\int_{-\infty}^{0} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr + \int_{0}^{\infty} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr \right] \]
+
+\end{solution}
+
+
+
 \item \textbf{Review Eq 2.5 on page 82 of Logan, which is a solution for the PDE}
 \[ w_t = kw_{xx} \, \, \, \text{for } x \in \mathbb{R}, \, t > 0\]
-\[ w(x, 0) = 0 \text{for } x < 0 \, ; \, w(x, 0) = 1 \text{for } x > 0.\]
+\[ w(x, 0) = 0 \, \, \,\text{for } x < 0 \, ; \, w(x, 0) = 1 \text{for } x > 0.\]
 
 \textbf{What is $\lim_{t \rightarrow \infty} w(x, t)$ and does this agree with your result in 3(a)?}
 \end{enumerate}
