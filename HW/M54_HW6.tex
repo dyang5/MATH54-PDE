@@ -77,13 +77,13 @@ Thus, our solution to the given diffusion PDE with the given initial value is
 
 \begin{solution}To show that this property holds, we will show that the left and right hand sides simplify to the same expression. We will begin by working with the left-hand side. \\
 
-Plugging in our solution for $u(x, t)$ when $t > 0$ into the left-hand side of the equation, we have that
+Plugging in our solution for $u(x, t)$ from the first problem into the left-hand side of the equation, we have that
 \[ \int_{-\infty}^{\infty} u(x, t) \, dx = \int_{-\infty}^{\infty}  \frac{1}{\sqrt{t+1}} e^{-\frac{x^2}{4(t+1)}} \, dx.\]
 
 Let us make the substitution $y = \frac{x}{\sqrt{4(t+1)}}.$ We also have that $dy = \frac{1}{\sqrt{4(t+1)}} \, dx.$ Substituting this into our integral, we get that
 \begin{align*} \int_{-\infty}^{\infty} u(x, t) \, dx &= \int_{-\infty}^{\infty}  \frac{1}{\sqrt{t+1}} e^{-\frac{x^2}{4(t+1)}} \, dx \\
 &= 2 \int_{-\infty}^{\infty}  \frac{1}{\sqrt{4(t+1)}} e^{-\frac{x^2}{4(t+1)}} \, dx \\
-&= 2 \int_{-\infty}^{\infty} e^{-y^2} \, dy.\end{align*}
+&= 2 \int_{y= -\infty}^{y=\infty} e^{-y^2} \, dy.\end{align*}
 
 We will now show that the right-hand side $\int_{-\infty}^{\infty} u(x, 0) \, dx$ can be rewritten in the same form. Plugging in the initial condition $u(x,0) = e^{-x^2/4}$ into this integral, we get
 \[ \int_{-\infty}^{\infty} u(x, 0) \, dx = \int_{-\infty}^{\infty} e^{-\frac{x^2}{4}} \, dx.\]
@@ -91,7 +91,7 @@ We will now show that the right-hand side $\int_{-\infty}^{\infty} u(x, 0) \, dx
 Let us now make the substitution $y = \frac{x}{2}$. This also gives us $dy = \frac{1}{2} \, dx$. Substituting this back into our integral, we get
 \begin{align*}  \int_{-\infty}^{\infty} u(x, 0) \, dx &= \int_{-\infty}^{\infty}  e^{-\frac{x^2}{4}} \, dx \\
 &= 2 \int_{-\infty}^{\infty}  \frac{1}{2}e^{-\frac{x^2}{4}} \, dx \\
-&= 2 \int_{-\infty}^{\infty}  e^{-y^2} \, dy.
+&= 2 \int_{y=-\infty}^{y=\infty}  e^{-y^2} \, dy.
 \end{align*}
 
 Thus, we see that \[ \int_{-\infty}^{\infty} u(x, t) \, dx = \int_{-\infty}^{\infty} u(x, 0) \, dx =  2 \int_{-\infty}^{\infty}  e^{-y^2} \, dy = 2\sqrt{\pi}. \]
@@ -115,15 +115,15 @@ $u$ is a solution to the diffusion equation on the infinite domain with bounded 
 Splitting the integral up into two separate integrals, we get that
 \[ u(x, t) = \frac{1}{\sqrt{\pi}} \left[\int_{-\infty}^{0} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr + \int_{0}^{\infty} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr \right] \]
 
-Thus, \[ \lim_{t \rightarrow \infty} u(x, t) = \lim_{t \rightarrow \infty} \frac{1}{\sqrt{\pi}} \left[\int_{-\infty}^{0} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr + \int_{0}^{\infty} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr \right]. \]
+Thus,\[ \lim_{t \rightarrow \infty} u(x, t) = \lim_{t \rightarrow \infty} \frac{1}{\sqrt{\pi}} \left[\int_{-\infty}^{0} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr + \int_{0}^{\infty} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr \right]. \]
 
 Per the given hint, we can pass the limit with respect to $t$ inside the integral, so we get that
 \[ \lim_{t \rightarrow \infty} u(x, t) = \frac{1}{\sqrt{\pi}} \left[\int_{-\infty}^{0} \lim_{t \rightarrow \infty} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr + \int_{0}^{\infty} \lim_{t \rightarrow \infty} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr \right]. \]
 
 We can evaluate each of the limits separately: note that when $r < 0$ (corresponding to the first integral), we have that
 \begin{align*}\lim_{t \rightarrow \infty} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr &= e^{-r^2} \lim_{t \rightarrow \infty} \phi(x-r\sqrt{4kt}) \\
-&= e^{-r} \lim_{y \rightarrow \infty} \phi(y) \\
-&= e^{-r} b.\end{align*}
+&= e^{-r^2} \lim_{y \rightarrow \infty} \phi(y) \\
+&= e^{-r^2} b.\end{align*}
 
 Similarly, we have that when $r > 0$ (corresponding to the second integral),
 \begin{align*}\lim_{t \rightarrow \infty} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr &= e^{-r^2} \lim_{t \rightarrow \infty} \phi(x-r\sqrt{4kt}) \\
@@ -135,7 +135,7 @@ Plugging these results back into our equation, we find that
 &= 	\frac{1}{\sqrt{\pi}} \left[\int_{-\infty}^{0} e^{-r^2} b \, dr + \int_{0}^{\infty} e^{-r^2} a  \, dr  \right]
 \end{align*}
 
-Factoring out the constants $a$ and $b$ and using the fact that $\int_{-\infty}^{0} e^{-r^2} \, dr = \int_{0}^{\infty} e^{-r^2} \, dr = \frac{\sqrt{\pi}}{2}$, we have that
+Factoring out the constants $a$ and $b$ and using the fact that \[\int_{-\infty}^{0} e^{-r^2} \, dr = \int_{0}^{\infty} e^{-r^2} \, dr = \frac{\sqrt{\pi}}{2},\] we have that
 \begin{align*} \lim_{t \rightarrow \infty} u(x, t) &= \frac{1}{\sqrt{\pi}} \left[\int_{-\infty}^{0} e^{-r^2} b \, dr + \int_{0}^{\infty} e^{-r^2} a  \, dr  \right] \\
 &= \frac{1}{\sqrt{\pi}} \left[ b \int_{-\infty}^{0} e^{-r^2} \, dr + a \int_{0}^{\infty} e^{-r^2} \, dr \right] \\
 &= \frac{1}{\sqrt{\pi}} \left[b \frac{\sqrt{\pi}}{2} + a \frac{\sqrt{\pi}}{2} \right] \\
