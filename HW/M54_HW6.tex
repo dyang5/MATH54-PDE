@@ -115,15 +115,62 @@ $u$ is a solution to the diffusion equation on the infinite domain with bounded 
 Splitting the integral up into two separate integrals, we get that
 \[ u(x, t) = \frac{1}{\sqrt{\pi}} \left[\int_{-\infty}^{0} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr + \int_{0}^{\infty} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr \right] \]
 
+Thus, \[ \lim_{t \rightarrow \infty} u(x, t) = \lim_{t \rightarrow \infty} \frac{1}{\sqrt{\pi}} \left[\int_{-\infty}^{0} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr + \int_{0}^{\infty} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr \right]. \]
+
+Per the given hint, we can pass the limit with respect to $t$ inside the integral, so we get that
+\[ \lim_{t \rightarrow \infty} u(x, t) = \frac{1}{\sqrt{\pi}} \left[\int_{-\infty}^{0} \lim_{t \rightarrow \infty} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr + \int_{0}^{\infty} \lim_{t \rightarrow \infty} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr \right]. \]
+
+We can evaluate each of the limits separately: note that when $r < 0$ (corresponding to the first integral), we have that
+\begin{align*}\lim_{t \rightarrow \infty} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr &= e^{-r^2} \lim_{t \rightarrow \infty} \phi(x-r\sqrt{4kt}) \\
+&= e^{-r} \lim_{y \rightarrow \infty} \phi(y) \\
+&= e^{-r} b.\end{align*}
+
+Similarly, we have that when $r > 0$ (corresponding to the second integral),
+\begin{align*}\lim_{t \rightarrow \infty} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr &= e^{-r^2} \lim_{t \rightarrow \infty} \phi(x-r\sqrt{4kt}) \\
+	&= e^{-r^2} \lim_{y \rightarrow -\infty} \phi(y) \\
+	&= e^{-r^2} a.\end{align*}
+
+Plugging these results back into our equation, we find that
+\begin{align*} \lim_{t \rightarrow \infty} u(x, t) &= \frac{1}{\sqrt{\pi}} \left[\int_{-\infty}^{0} \lim_{t \rightarrow \infty} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr + \int_{0}^{\infty} \lim_{t \rightarrow \infty} e^{-r^2} \phi(x-r\sqrt{4kt}) \, dr \right] \\
+&= 	\frac{1}{\sqrt{\pi}} \left[\int_{-\infty}^{0} e^{-r^2} b \, dr + \int_{0}^{\infty} e^{-r^2} a  \, dr  \right]
+\end{align*}
+
+Factoring out the constants $a$ and $b$ and using the fact that $\int_{-\infty}^{0} e^{-r^2} \, dr = \int_{0}^{\infty} e^{-r^2} \, dr = \frac{\sqrt{\pi}}{2}$, we have that
+\begin{align*} \lim_{t \rightarrow \infty} u(x, t) &= \frac{1}{\sqrt{\pi}} \left[\int_{-\infty}^{0} e^{-r^2} b \, dr + \int_{0}^{\infty} e^{-r^2} a  \, dr  \right] \\
+&= \frac{1}{\sqrt{\pi}} \left[ b \int_{-\infty}^{0} e^{-r^2} \, dr + a \int_{0}^{\infty} e^{-r^2} \, dr \right] \\
+&= \frac{1}{\sqrt{\pi}} \left[b \frac{\sqrt{\pi}}{2} + a \frac{\sqrt{\pi}}{2} \right] \\
+&= \frac{1}{2} (a+b).
+\end{align*}
+
+Thus, we have that \[\boxed{\lim_{t\rightarrow \infty} u (x, t) = \frac{1}{2} (a+b)}.\]
 \end{solution}
+
 
 
 
 \item \textbf{Review Eq 2.5 on page 82 of Logan, which is a solution for the PDE}
 \[ w_t = kw_{xx} \, \, \, \text{for } x \in \mathbb{R}, \, t > 0\]
-\[ w(x, 0) = 0 \, \, \,\text{for } x < 0 \, ; \, w(x, 0) = 1 \text{for } x > 0.\]
+\[ w(x, 0) = 0 \, \, \,\text{for } x < 0 \, ; \, w(x, 0) = 1 \, \, \, \text{for } x > 0.\]
 
 \textbf{What is $\lim_{t \rightarrow \infty} w(x, t)$ and does this agree with your result in 3(a)?}
+
+\begin{solution}
+Eq 2.5 on page 82 of Logan gives us a solution to the given PDE:
+\[ w(x, t) = \frac{1}{2} + \frac{1}{\sqrt{\pi}} \int_0^{x/(\sqrt{4kt})} e^{-r^2} \, dr.\]
+
+Taking the limit of $w(x, t)$ as $t$ approaches $\infty$, we find that 
+\[\lim_{t \rightarrow \infty} w(x, t) = \frac{1}{2} + \frac{1}{\sqrt{\pi}} \lim_{t \rightarrow \infty} \int_0^{x/(\sqrt{4kt})} e^{-r^2} \, dr.\]
+
+Since $\lim_{t \rightarrow \infty} \frac{x}{\sqrt{4kt}} = 0$, we have that 
+\begin{align*} \lim_{t \rightarrow \infty} w(x, t) &= \frac{1}{2} + \frac{1}{\sqrt{\pi}} \lim_{t \rightarrow \infty} \int_0^{x/(\sqrt{4kt})} e^{-r^2} \, dr \\
+&= \frac{1}{2} + \frac{1}{\sqrt{\pi}} \int_0^0 e^{-r^2} \, dr \\
+&= \frac{1}{2} + \frac{1}{\sqrt{\pi}} \cdot 0 \\ &= \frac{1}{2}.\end{align*}
+
+Since $\lim_{x \rightarrow -\infty} w(x, 0) = 0$ and $\lim_{x \rightarrow \infty} w(x, 0) = 1$, and 
+\[\lim_{t \rightarrow \infty} w(x, t)= \frac{1}{2} = \frac{1}{2} (0 + 1),\]
+
+we see that our answer does match up with our result from 3(a), as desired.
+\end{solution}
 \end{enumerate}
 \end{enumerate}
 
