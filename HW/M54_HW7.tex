@@ -1,0 +1,40 @@
+\documentclass[11pt]{article}
+\usepackage{graphics}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage[margin=1in]{geometry}
+
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+  
+\newcommand{\N}{\mathbb{N}}
+\setlength\parindent{0pt}
+\begin{document}
+
+	\hrule
+	\begin{center}
+		{\Large Homework 7} \\ % Replace with the homework number
+		\vspace{0.2cm}
+		Partial Differential Equations, Spring 2023 \hfill David Yang % Replace with your name(s)
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+
+\underline{Chapter 2.6, Problem 7} \\
+
+\textbf{Solve $u_t =u_{xx}$ on $x,t>0$ with $u(0,t)=a, \, t>0$ and $u(x,0)=b$, where $a$ and $b$ are constants.} \\
+
+\underline{Chapter 2.7, Problem 15} \\
+
+\textbf{Solve the Cauchy problem for the advection-diffusion equation using Fourier transforms:}
+\[u_t = Du_{xx} - cu_x, \, \, \, x \in \mathbb{R}, \, t>0; \, \, \, u(x,0)=\phi(x), x\in\mathbb{R}.\]
+
+
+\end{document}
