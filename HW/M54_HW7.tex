@@ -31,6 +31,38 @@
 
 \textbf{Solve $u_t =u_{xx}$ on $x,t>0$ with $u(0,t)=a, \, t>0$ and $u(x,0)=b$, where $a$ and $b$ are constants.} \\
 
+\begin{solution}
+We begin by taking the Laplace transform of the PDE $u_t = u_xx.$ This gives us $ \mathcal{L}(u_t) = \mathcal{L}(u_{xx}).$ Equivalently, we have that
+\[ s\mathcal{L}[u(x, s)] - u(x, 0) = \mathcal{L}[u_{xx}],\]
+
+or \[sU(x, s) - b = U_{xx}(x, s).\]
+
+We now have a simple second-order linear ODE that we can solve: $U_{xx} - sU = -b.$ To find the general solution for this ODE, we will add the solution to the homogeneous ODE with a particular solution. \\
+
+We can first solve the homogeneous ODE. Note that the characteristic polynomial for the homogeneous ODE  $U_{xx} - sU = 0$ is $r^2 - s =0$, with solutions $r = \pm \sqrt{s}.$ This tells us that the homogeneous solution is \[U(x, s) = a(s)e^{-x\sqrt{s}} + b(s)e^{-x\sqrt{s}}.\]
+However, since we want $U$ to be bounded, we also know that $b(s) = 0$. Thus, \[U(x, s) = a(s)e^{-x\sqrt{s}}\] is our bounded solution for the homogeneous ODE. \\
+
+We can now notice that $U(x, s) = \frac{b}{s}$ is a particular solution to the ODE, as $U_{xx} = 0$ and $-sU = -b$, so $U_{xx} - sU = -b.$ \\
+
+Thus, combining our homogeneous and particular solutions gives us our general solution:
+\[ U(x, s) = a(s)e^{-x\sqrt{s}} + \frac{b}{s}. \]
+
+We can now apply our boundary condition $u(0, t) = a.$ This condition tells us that \[U(0, s) = \mathcal{L}(a) = \frac{a}{s}.\]
+Plugging in $x=0$ into the general solution we found earlier, we have that $U(0, s) = a(s) + \frac{b}{s}$. Thus, we must have that
+\[a(s) + \frac{b}{s} = \frac{a}{s} \]
+and so we know that \[a(s) = \frac{a-b}{s}.\]
+
+Plugging this back into our general equation gives us the solution in the transform domain:
+\begin{align*} U(x, s) &= a(s)e^{-x\sqrt{s}} + \frac{b}{s} \\ &= \frac{a-b}{s}e^{-x\sqrt{s}} + \frac{b}{s}.\end{align*}
+
+Applying the inverse Laplace transform to this solution gives us the solution to our original problem:
+\[\boxed{u(x, t) = (a-b)\left( 1 - \mathrm{erf}\left( \frac{x}{2\sqrt{t}}\right)\right) + b}.\]
+\end{solution}
+
+
+\newpage
+
+
 \underline{Chapter 2.7, Problem 15} \\
 
 \textbf{Solve the Cauchy problem for the advection-diffusion equation using Fourier transforms:}
