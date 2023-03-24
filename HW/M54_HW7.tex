@@ -68,5 +68,11 @@ Applying the inverse Laplace transform to this solution gives us the solution to
 \textbf{Solve the Cauchy problem for the advection-diffusion equation using Fourier transforms:}
 \[u_t = Du_{xx} - cu_x, \, \, \, x \in \mathbb{R}, \, t>0; \, \, \, u(x,0)=\phi(x), x\in\mathbb{R}.\]
 
+We begin by taking the Fourier transform of the PDE $u_t = Du_{xx} - cu_x.$ Applying the rule \[\mathcal{F}\left[ \frac{\partial^k u}{\partial x^k}\right] = (-i\xi)^k \hat{u},\] we get that
+\begin{align*} \hat{u}_t &= D(-i\xi)^2 \hat{u} - c(-i\xi) \hat{u} \\
+&= (-D\xi^2 + ci\xi) \hat{u}.\end{align*}
 
+Solving this ODE, we get that \[\hat{u}(\xi, t) = A(\xi)e^{(-D\xi^2 + ci\xi)t}.\]
+
+We are given the initial value $u(x, 0) = \phi(x)$. Thus, we should have that $\hat{u}(\xi, 0) = \hat{\phi}(\xi).$
 \end{document}
