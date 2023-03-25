@@ -32,7 +32,7 @@
 \textbf{Solve $u_t =u_{xx}$ on $x,t>0$ with $u(0,t)=a, \, t>0$ and $u(x,0)=b$, where $a$ and $b$ are constants.} \\
 
 \begin{solution}
-We begin by taking the Laplace transform of the PDE $u_t = u_xx.$ This gives us $ \mathcal{L}(u_t) = \mathcal{L}(u_{xx}).$ Equivalently, we have that
+We begin by taking the Laplace transform of the PDE $u_t = u_{xx}.$ This gives us $ \mathcal{L}(u_t) = \mathcal{L}(u_{xx}).$ Equivalently, we have that
 \[ s\mathcal{L}[u(x, s)] - u(x, 0) = \mathcal{L}[u_{xx}],\]
 
 or \[sU(x, s) - b = U_{xx}(x, s).\]
@@ -68,11 +68,30 @@ Applying the inverse Laplace transform to this solution gives us the solution to
 \textbf{Solve the Cauchy problem for the advection-diffusion equation using Fourier transforms:}
 \[u_t = Du_{xx} - cu_x, \, \, \, x \in \mathbb{R}, \, t>0; \, \, \, u(x,0)=\phi(x), x\in\mathbb{R}.\]
 
-We begin by taking the Fourier transform of the PDE $u_t = Du_{xx} - cu_x.$ Applying the rule \[\mathcal{F}\left[ \frac{\partial^k u}{\partial x^k}\right] = (-i\xi)^k \hat{u},\] we get that
+\begin{solution}
+We begin by taking the Fourier transform of the PDE $u_t = Du_{xx} - cu_x.$ Using the rule \[\mathcal{F}\left[ \frac{\partial^k u}{\partial x^k}\right] = (-i\xi)^k \hat{u},\] we get that
 \begin{align*} \hat{u}_t &= D(-i\xi)^2 \hat{u} - c(-i\xi) \hat{u} \\
 &= (-D\xi^2 + ci\xi) \hat{u}.\end{align*}
 
 Solving this ODE, we get that \[\hat{u}(\xi, t) = A(\xi)e^{(-D\xi^2 + ci\xi)t}.\]
 
-We are given the initial value $u(x, 0) = \phi(x)$. Thus, we should have that $\hat{u}(\xi, 0) = \hat{\phi}(\xi).$
+We are given the initial value $u(x, 0) = \phi(x)$. Thus, we should have that $\hat{u}(\xi, 0) = \hat{\phi}(\xi).$ Plugging this condition into our expression for $\hat{u}(\xi, t)$, we get that $A(\xi) = \hat{\phi}(\xi).$ \\
+
+Thus, we know that \[\hat{u}(\xi, t) = \hat{\phi}(\xi)e^{(-D\xi^2 + ci\xi)t}. \]
+
+Using the convolution property of Fourier transforms, we have that
+\[ u(x, t) = \mathcal{F}^{-1}\left(\hat{\phi}(\xi)\right) \ast \mathcal{F}^{-1}\left[e^{(-D\xi^2 + ci\xi)t} \right].\]
+
+By definition, $\mathcal{F}^{-1}\left(\hat{\phi}(\xi)\right) = \phi$, and we know from class that $\mathcal{F}^{-1}\left[ e^{-D\xi^2t}\right] = \sqrt{\frac{1}{4\pi Dt}}e^{-\frac{x^2}{4Dt}}.$ Furthermore, formula 3(c) on page 123 of Logan tells us that \[ \mathcal{F}^{-1} \left[ \hat{u}(\xi, t) e^{-ia\xi}\right] = u(x+a) .\]
+
+Applying formula 3(c) here, we get that 
+\[\mathcal{F}^{-1}\left[e^{(-D\xi^2 + ci\xi)t} \right] = \mathcal{F}^{-1}\left[e^{-D\xi^2t} e^{-i(-ct)\xi} \right] = \sqrt{\frac{1}{4\pi Dt}}e^{-\frac{(x-ct)^2}{4Dt}} .\]
+
+Thus, going back to our result from the convolution property, we get that
+\begin{align*} u(x, t) &= \mathcal{F}^{-1}\left(\hat{\phi}(\xi)\right) \ast \mathcal{F}^{-1}\left[e^{(-D\xi^2 + ci\xi)t} \right] \\
+&= \phi(x) \ast \sqrt{\frac{1}{4\pi Dt}}e^{-\frac{(x-ct)^2}{4Dt}}\end{align*}
+
+In conclusion, the solution to the given Cauchy problem for the advection-diffusion equation is
+\[ \boxed{u(x, t) =  \phi(x) \ast \sqrt{\frac{1}{4\pi Dt}}e^{-\frac{(x-ct)^2}{4Dt}}}. \] \end{solution}
+
 \end{document}
