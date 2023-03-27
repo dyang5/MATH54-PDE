@@ -24,7 +24,7 @@
 
 	\hrule
 	\begin{center}
-		{\Large Final Project Proposal} \\ % Replace with the homework number
+		{\Large Final Project Introduction Draft} \\ % Replace with the homework number
 		\vspace{0.2cm}
 		Partial Differential Equations, Spring 2023 \hfill David Yang and Martina Kampel% Replace with your name(s)
 	\end{center}
@@ -33,28 +33,28 @@
 
 \vspace{1em}
 
-\begin{itemize}
-    \item What is the topic and why is it significant?
-    \item What is the mathematical or scientific context of your paper? (Analytical methods?
-    Numerical methods? Application area?) Can list foundational ideas necessary to recall.
-    \item Are there historical figures, or moments, that are relevant to this topic that you can
-    describe in a way that enriches the introduction your topic?
-    \item Are there applications of this topic, or discoveries related to this topic, that you can
-    describe in a way that heightens a reader's interest in the topic?
-    \item Preview the main "story" you plan to tell: describe (qualitatively) the PDE and "results" you will present (qualitative here, in detail in later sections)
-\end{itemize} 
+Partial differential equations are used to explains all kinds of models in nature. In this paper we discuss a partial differential equation that models the evolution in time of an age-structured population. Our equation is useful for age-structured models,  demographic models where the population at time $t$ has an age distribution superimposed on it. In other words, at time a given time $t$, the ages of the individuals in a population are also considered. Age-structured models are related to general physiologically-structured models, where any other variable (such as size or weight) can replace the age variable. Consequently, the ideas we discuss in this paper, though focused on age, can also be extended to other physiological structures. \\
 
 
-\begin{enumerate}
-    \item The PDE that we plan on writing about in our report is the \textbf{McKendrick–von Forester equation}, discussed in Logan on page 230. The general form of the PDE is 
-    \[ u_t = -u_a - m(a)u, \] a form of the advection equation where $m(a)$ represents the maternity rate at some age and $u(a, t)$ represents the density at age $a$ and time $t$. \\
+Per Wikipedia, the \textbf{McKendrick–von Forester equation} was first presented by McKendrick in 1926 as a "deterministic limit of lattice models applied to epidemiology", and, independently in 1959, by biophysics professor Heinz von Foerster for describing cell cycles. \\
+
+The general form of the \textbf{McKendrick–von Forester equation} is
+    \[ u_t = -u_a - m(a)u. \]
     
-    This PDE appears in the context of \textbf{age-structured models}, i.e. demographic models where the population at time $t$ has an age distribution superimposed on it, and has general implications in mathematical biology.
-    \item Our group consists of David Yang and Martina Kampel.
-    \item We plan to derive the age-structured model with this equation, as well as discuss how one might go about finding the ``growth" rate and stable age structure solution, as presented in Chapter 5.1 of our textbook. \\
+This equation is a form of the advection equation where $m(a)$ represents the maternity rate at some age and $u(a, t)$ represents the density at age $a$ and time $t$. \\
 
-    Our main resources will be Chapter 5.1 of Logan and other related papers, such as this \href{https://pdf.sciencedirectassets.com/271552/1-s2.0-S0895717700X00556/1-s2.0-S0895717797001659/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFMaCXVzLWVhc3QtMSJGMEQCIHGjPP3QmYF7lUpMar3X0iPw%2BLTC6Mp4J%2B5V6wRAEs3IAiBW5y4AQyZbjSqaBTOsUVC%2FMm57XAwDj0s4ZweuzxmG7irVBAjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAUaDDA1OTAwMzU0Njg2NSIMr81u3tAkt6yfEZHdKqkEv%2BahXl5OAN%2Bblv%2FtdKKEv6JHIHgd4OCYTCgbLaT%2BpPpYKkChw84iFXE%2Fb8g1ktet8mDHeZOg60OeQn%2BL0X5Co4sBo10210NMuKzpGVvHTu3xAvXlgmGPJzOuQeAMzvKPB2wwwvN8jFm9yYEX3JmdcPMklu3lJ4GfEcgJSqb0oFMKfvLumzYSxrIKozz3xDOF8JzRvSFebaucogQrroxIg3N1M0AxZVy4MztqQA%2BLfuWIG6DzYXHJRJNWJbNUc67u9rqUXMJXwk96OeeDQzlmjjwHPtdgChW4jj1aEWn5x%2BhDEQv3aubo3rsCP682tjUeDAZDpGn0RtZ5QR46474EM4I5FYADTpHkgWFd%2F2YU4OVcUQq26WzQ4XKZMZsNat9eoXbioErq9WRFoC3rNAu2rqOEygoi9NGZUPbb80hB06Caki546NxZmJ3gov%2FDGGXUEsuNol8K04CkZcpftvJccTinD3DxB3v7wp35%2B1OQCS99exlfA%2BstooihGByg0%2F1u4Yj5hirQ0qPIBd7ePGj15wYb7RRuAhiMz%2Fx2iy3%2BUz23brTyM%2Ft6FxWO%2FjJQ4BQKdcvzMYdggNPEiyNypKRXK%2BnWzQL5o20QY2J%2Bfv9ZVVB%2BAT2%2FaFtiM3qVClr81xo2SIEjsW9xVWCxhkOswvma5Z7rYSx4DJZ6i6hwYcVoCyjeftEeMjDQ7o%2FlSlJ2Kf%2FAfFZiXPrhrLL3a1AsxM47hj%2BSaPjYoqx7ZDDZ3aSfBjqqAbfsUaPb7RmlHKItHZmDsZHDCysfih1ZAYGPieeZqyOhMwr1MnPPkbL1%2FWompvEt2QJiJnBSAo6qiyIeVF3MB%2FWhyoEHNUrYb80D5zyeBTsgrz7yHGfu7yGCeeidMV3oDAga0teMt3dJ1BR0NUrRG8r4KD%2F5zk5gi7yJs05VpFQwJTsVYLhlftP5qomVT2M4e7%2B1LVZsMNqzO8JrgBAnJsPwXc1xHw1UVH19&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230212T191601Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTYXJCA3JUT%2F20230212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=79be86eab77e3a5c0e64838e374d887d34b5c382c680961427e0ac4e1b8acb26&hash=8b1c8527e1ef0c5108cb085d71704f32d6f1e104d4c230540ce33e89da7f6a49&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S0895717797001659&tid=spdf-1c2a0f02-f363-44a7-b414-315d2a5071ca&sid=5ab4ad84655bd84f5a282503effe58bea59fgxrqa&type=client&tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&ua=0f16505856500258515100&rr=7987a806ddd88cca&cc=us}{one}.
-\end{enumerate}
+This means we can use a certain age, \textit{a}, and a time, \textit{t}, and then compute the density of the population of that particular age at that time. \\
 
+
+In our project, we will derive the general age-structured model on Logan, page 231:
+\[ u_t = -u_a-m(a)u, \, \, \, a>0, \, t>0\]
+\[ u(0,t) = \int_0^{\infty}b(a,t)u(a, t) \, da, \, \, \, t>0\]
+\[ u(a, 0)=f(a), \, \, \, a \geq 0\]
+
+where the newly introduced terms $b(a, t)$ and $f(a)$ represent the average reproduction rate and the population of female organisms, respectively. \\
+
+We will then discuss the stable age structure to see what happens over a long time. Finally, we plan on presenting the renewal equation (a simplified version of the age-structured model above where $b = b(a)$ and $m =$ constant), which we will solve using the method of characteristics. \\
+
+In conclusion, we will discuss various extensions of the McKendrick-von Forester equation and the importance it plays in helping scientists understand population models. Our main resources will be Chapter 5.1 of Logan and other related papers, such as this \href{https://pdf.sciencedirectassets.com/271552/1-s2.0-S0895717700X00556/1-s2.0-S0895717797001659/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFMaCXVzLWVhc3QtMSJGMEQCIHGjPP3QmYF7lUpMar3X0iPw%2BLTC6Mp4J%2B5V6wRAEs3IAiBW5y4AQyZbjSqaBTOsUVC%2FMm57XAwDj0s4ZweuzxmG7irVBAjc%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAUaDDA1OTAwMzU0Njg2NSIMr81u3tAkt6yfEZHdKqkEv%2BahXl5OAN%2Bblv%2FtdKKEv6JHIHgd4OCYTCgbLaT%2BpPpYKkChw84iFXE%2Fb8g1ktet8mDHeZOg60OeQn%2BL0X5Co4sBo10210NMuKzpGVvHTu3xAvXlgmGPJzOuQeAMzvKPB2wwwvN8jFm9yYEX3JmdcPMklu3lJ4GfEcgJSqb0oFMKfvLumzYSxrIKozz3xDOF8JzRvSFebaucogQrroxIg3N1M0AxZVy4MztqQA%2BLfuWIG6DzYXHJRJNWJbNUc67u9rqUXMJXwk96OeeDQzlmjjwHPtdgChW4jj1aEWn5x%2BhDEQv3aubo3rsCP682tjUeDAZDpGn0RtZ5QR46474EM4I5FYADTpHkgWFd%2F2YU4OVcUQq26WzQ4XKZMZsNat9eoXbioErq9WRFoC3rNAu2rqOEygoi9NGZUPbb80hB06Caki546NxZmJ3gov%2FDGGXUEsuNol8K04CkZcpftvJccTinD3DxB3v7wp35%2B1OQCS99exlfA%2BstooihGByg0%2F1u4Yj5hirQ0qPIBd7ePGj15wYb7RRuAhiMz%2Fx2iy3%2BUz23brTyM%2Ft6FxWO%2FjJQ4BQKdcvzMYdggNPEiyNypKRXK%2BnWzQL5o20QY2J%2Bfv9ZVVB%2BAT2%2FaFtiM3qVClr81xo2SIEjsW9xVWCxhkOswvma5Z7rYSx4DJZ6i6hwYcVoCyjeftEeMjDQ7o%2FlSlJ2Kf%2FAfFZiXPrhrLL3a1AsxM47hj%2BSaPjYoqx7ZDDZ3aSfBjqqAbfsUaPb7RmlHKItHZmDsZHDCysfih1ZAYGPieeZqyOhMwr1MnPPkbL1%2FWompvEt2QJiJnBSAo6qiyIeVF3MB%2FWhyoEHNUrYb80D5zyeBTsgrz7yHGfu7yGCeeidMV3oDAga0teMt3dJ1BR0NUrRG8r4KD%2F5zk5gi7yJs05VpFQwJTsVYLhlftP5qomVT2M4e7%2B1LVZsMNqzO8JrgBAnJsPwXc1xHw1UVH19&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230212T191601Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTYXJCA3JUT%2F20230212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=79be86eab77e3a5c0e64838e374d887d34b5c382c680961427e0ac4e1b8acb26&hash=8b1c8527e1ef0c5108cb085d71704f32d6f1e104d4c230540ce33e89da7f6a49&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S0895717797001659&tid=spdf-1c2a0f02-f363-44a7-b414-315d2a5071ca&sid=5ab4ad84655bd84f5a282503effe58bea59fgxrqa&type=client&tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&ua=0f16505856500258515100&rr=7987a806ddd88cca&cc=us}{one}, or other presentations, such as this \href{https://jmahaffy.sdsu.edu/courses/f17/math636/beamer/ageblood.pdf}{one}.
 
 \end{document}
