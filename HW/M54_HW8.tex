@@ -1,0 +1,49 @@
+\documentclass[11pt]{article}
+\usepackage{graphics}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage[shortlabels]{enumitem}
+
+
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+  
+\newcommand{\N}{\mathbb{N}}
+\setlength\parindent{0pt}
+\begin{document}
+
+	\hrule
+	\begin{center}
+		{\Large Homework 8} \\ % Replace with the homework number
+		\vspace{0.2cm}
+		Partial Differential Equations, Spring 2023 \hfill David Yang % Replace with your name(s)
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+
+\underline{HW 8 Problem} \\
+
+\textbf{Consider the 1st order linear initial value PDE problem:
+\[tu_t + u_x = 0 \, \, \, \text{for } t > 0, x \in \mathbb{R}\]
+\[ u(x, 0) = f(x) \, \, \, \text{for } x \in \mathbb{R}.\]}
+
+\begin{enumerate}[(a)]
+    \item \textbf{Apply the Method of Characteristics. Your goal is to find a characteristic value $\xi(x, t)$ so that any function of the form $u(x, t) = f(\xi)$ satisfies the PDE.}
+    \item \textbf{Set $f(x) = x$ as the initial value for the PDE given above. Show that the form of the solution you found in (a) does not satisfy this initial value. \\}
+    
+    \textbf{\textit{Remark: In fact, no solutions exist for this PDE that solve the initial value $u(x, 0) = x$. This PDE is ill-posed for $u(x, 0) = x$.}}
+    \item \textbf{Set $f(x) = 1$ as the initial value for the PDE given above. Now let $\xi$ be the characteristic variable you found in (a). 
+    For what values of the constants $a$ and $b$ does the function $u(x, t) = a + b\xi$ also solve the PDE and satisfy the initial value $u(x,0) = 1$?}\\
+
+    \textbf{Is the PDE with the initial value $f(x) = 1$ \textit{well-posed} or \textit{ill-posed}? Why?}
+\end{enumerate}
+
+\end{document}
