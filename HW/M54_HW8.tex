@@ -37,6 +37,14 @@
 
 \begin{enumerate}[(a)]
     \item \textbf{Apply the Method of Characteristics. Your goal is to find a characteristic value $\xi(x, t)$ so that any function of the form $u(x, t) = f(\xi)$ satisfies the PDE.}
+    
+    \begin{solution}
+    We begin by applying the Method of Characteristics. We get that 
+    \[ t_{\tau} = t, \, \, \, x_{\tau} = 1, \text{ and } U_{\tau} = 0.\]
+
+    Solving for $t$ and $x$ by integrating with respect to $\tau$, we find that 
+    \[ t = \xi e^{\tau} \, \, \, x = \tau + \xi.\]
+    \end{solution}
     \item \textbf{Set $f(x) = x$ as the initial value for the PDE given above. Show that the form of the solution you found in (a) does not satisfy this initial value. \\}
     
     \textbf{\textit{Remark: In fact, no solutions exist for this PDE that solve the initial value $u(x, 0) = x$. This PDE is ill-posed for $u(x, 0) = x$.}}
