@@ -36,22 +36,80 @@
 \[ u(x, 0) = f(x) \, \, \, \text{for } x \in \mathbb{R}.\]}
 
 \begin{enumerate}[(a)]
-    \item \textbf{Apply the Method of Characteristics. Your goal is to find a characteristic value $\xi(x, t)$ so that any function of the form $u(x, t) = f(\xi)$ satisfies the PDE.}
+    \item \textbf{Apply the Method of Characteristics. Your goal is to find a characteristic value $\xi(x, t)$ so that any function of the form $u(x, t) = f(\xi)$ satisfies the PDE.} \\
+     
+    \textbf{Tip: In most problems of this type that you have worked on in before, you have set $t = \tau$
+    and used the $\xi$ variable to parameterize the values of $x$ along the $x$ axis. For this problem,
+    set $x=\tau$ and use the $\xi$ variable to parameterize the values of $t$ along the $t$-axis.}
     
     \begin{solution}
     We begin by applying the Method of Characteristics. We get that 
     \[ t_{\tau} = t, \, \, \, x_{\tau} = 1, \text{ and } U_{\tau} = 0.\]
 
-    Solving for $t$ and $x$ by integrating with respect to $\tau$, we find that 
-    \[ t = \xi e^{\tau} \, \, \, x = \tau + \xi.\]
-    \end{solution}
-    \item \textbf{Set $f(x) = x$ as the initial value for the PDE given above. Show that the form of the solution you found in (a) does not satisfy this initial value. \\}
-    
-    \textbf{\textit{Remark: In fact, no solutions exist for this PDE that solve the initial value $u(x, 0) = x$. This PDE is ill-posed for $u(x, 0) = x$.}}
-    \item \textbf{Set $f(x) = 1$ as the initial value for the PDE given above. Now let $\xi$ be the characteristic variable you found in (a). 
-    For what values of the constants $a$ and $b$ does the function $u(x, t) = a + b\xi$ also solve the PDE and satisfy the initial value $u(x,0) = 1$?}\\
+    Since, as the tip says, we set $x = \tau$ and use the $\xi$ variable to parameterize the values of $t$ along the $t$-axis, we know 
+    \[ t(\xi = 0) = 0 \, \, \, \text{and} \, \, \, x(\xi = 0) = \tau.\]
 
-    \textbf{Is the PDE with the initial value $f(x) = 1$ \textit{well-posed} or \textit{ill-posed}? Why?}
+    Solving for $t$ and $x$ by integrating with respect to $\tau$ and using these initial values, we find that 
+    \[ t = \xi e^{\tau} \, \, \, \text{ and } \, \, \, x = \tau.\]
+
+    Solving for $U$, we get that \[ U = f(\xi)\] which also matches the given initial condition $U(\xi, 0) = f(\xi).$ \\
+
+    Now, solving for $\xi$ and $\tau$ in terms of $x$ and $t$, we get that \[ \tau = x \, \, \, \text{ and } \, \, \, \xi = te^{-x}.\]
+
+    Plugging this change of variables back into our solution, we get that
+    \[u(x(\xi, \tau), t(\xi, \tau)) = f(\xi(x, t)) = f(te^{-x}).\]
+
+    Thus, our solution is \[\boxed{u(x, t) = f(te^{-x})}.\]
+    
+    \end{solution}
+    \item \textbf{Set $f(x) = x$ as the initial value for the PDE given above. Show that the form of the solution you found in (a) does not satisfy this initial value. } \\
+     
+    \textbf{\textit{Remark: In fact, no solutions exist for this PDE that solve the initial value $u(x, 0) = x$. This PDE is ill-posed for $u(x, 0) = x$.}}
+
+    \begin{solution}
+      We set $f(x) = x$ as per the instructions. We will now check whether the solution $u(x, t) = f(te^{-x})$ satisfies the initial value
+      \[ u(x, 0) = x \, \, \, \text{for } x \in \mathbb{R}.\]
+  
+      Plugging in $t=0$ to our solution, we get that \[ u(x, 0) = 0 \text{ for } x \in \mathbb{R} \]
+  
+      However, notice that to satisfy the initial condition, we must have that $u(x, 0) = f(x) = x$ for $x\in \mathbb{R}$. \\
+  
+      Clearly, \[ u(x, 0) = 0 \neq x \text{ for } x \in \mathbb{R}, \] and so the solution we found in (a) does not satisfy the initial value for the PDE.
+      \end{solution}
+    
+    \item \textbf{Set $f(x) = 1$ as the initial value for the PDE given above. Now let $\xi$ be the characteristic variable you found in (a). 
+    For what values of the constants $a$ and $b$ does the function $u(x, t) = a + b\xi$ also solve the PDE and satisfy the initial value $u(x,0) = 1$?}
+    
+    \begin{solution}
+    Let $u(x, t) = a + b\xi$, where $\xi = te^{-x}$ as we found in part (a). Equivalently, we have that
+    \[ u(x, t) = a + bte^{-x}.\]
+
+    Calculating the partial derivatives, we get that \[ u_t = a + be^{-x} \,\,\, \text { and } \,\,\, u_x = a-bte^{-x}.\]
+
+    Plugging these partials back into our PDE, we get
+    \begin{align*} tu_t + u_x &= t\left( a+be^{-x}\right) + \left(a-bte^{-x}\right) \\
+      &= \left(at + bte^{-x}\right) + \left(a - bte^{-x} \right) \\
+      &= at + a.
+    \end{align*}
+
+    Thus, to satisfy the initial PDE problem $tu_t + u_x = 0$ for all $t  > 0, x \in \mathbb{R}$, we must have that \[at + a = 0\] for all $t > 0$, meaning that $a$ must be $0$. \\
+
+    On the other hand, to satisfy the initial value $u(x, 0) = 1$, we must have
+    \begin{align*} u(x, 0) &= a + b(0)e^{-x} \\
+      &= a \\
+      &= 1.\end{align*}
+    \end{solution}
+    \item \textbf{Is the PDE with the initial value $f(x) = 1$ \textit{well-posed} or \textit{ill-posed}? Why?}
+    \begin{solution}
+      Let $f(x) = 1$. We will now check whether the solution $u(x, t) = f(te^{-x})$ satisfies the initial value
+      \[ u(x, 0) = 1 \, \, \, \text{for } x \in \mathbb{R}.\]
+  
+      Plugging in $t=0$ to our solution, we get that \[ u(x, 0) = f(0e^{-x}) = f(0) \text{ for } x \in \mathbb{R} \]
+  
+      However, notice that to satisfy the initial condition, we must have that $u(x, 0) = f(x) = x$ for $x\in \mathbb{R}$. \\
+  
+      Clearly, \[ u(x, 0) = f(0) \neq f(x) \text{ for } x \in \mathbb{R}, \] and so the solution we found in (a) does not satisfy the initial value.
+      \end{solution}
 \end{enumerate}
 
 \end{document}
