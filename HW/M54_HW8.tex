@@ -69,7 +69,7 @@
       We set $f(x) = x$ as per the instructions. We will now check whether the solution $u(x, t) = f(te^{-x})$ satisfies the initial value
       \[ u(x, 0) = x \, \, \, \text{for } x \in \mathbb{R}.\]
   
-      Plugging in $t=0$ to our solution, we get that \[ u(x, 0) = 0 \text{ for } x \in \mathbb{R} \]
+      Plugging in $t=0$ to our solution $u(x, t) = f(te^{-x})$, we get that \[ u(x, 0) = f(0e^{-x}) = f(0) = 0 \text{ for } x \in \mathbb{R} \]
   
       However, notice that to satisfy the initial condition, we must have that $u(x, 0) = f(x) = x$ for $x\in \mathbb{R}$. \\
   
@@ -98,8 +98,7 @@
       &= a \\
       &= 1.\end{align*}
 
-    Thus, we must have that $a = 1$ and $b \in \mathbb{R}$ for the function $u(x, t) = a+b\xi = a+b(te^{-x})$ to solve the PDE and initial value $u(x, 0) = 1.$ \\
-    \end{solution}
+    Thus, we must have that $a = 1$ and $b \in \mathbb{R}$ for the function $u(x, t) = a+b\xi = a+b(te^{-x})$ to solve the PDE and initial value $u(x, 0) = 1.$ \end{solution}
 
     \textbf{Is the PDE with the initial value $f(x) = 1$ \textit{well-posed} or \textit{ill-posed}? Why?}
     \begin{solution} 
@@ -107,7 +106,7 @@
     From our above work, we found that any solution $u(x, t) = a + b\xi = a + bte^{-x}$ with $a = 1$ and $b \in \mathbb{R}$ solves the PDE and satisfies the initial value $u(x, 0) = 1.$ 
     Consequently, there are infinitely many solutions to the PDE with initial value $f(x) = 1.$ \\
 
-    For PDE to be well-posed, it must have a unique solution. Since the PDE with initial value $f(x) = 1$ has infinitely many solutions, it is an \boxed{\text{ill-posed}} PDE.
+    For a PDE to be well-posed, it must have a unique solution. Since the PDE with initial value $f(x) = 1$ has infinitely many solutions, it is an \boxed{\text{ill-posed}} PDE.
     \end{solution}
 \end{enumerate}
 
