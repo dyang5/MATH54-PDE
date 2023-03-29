@@ -46,15 +46,14 @@
     We begin by applying the Method of Characteristics. We get that 
     \[ t_{\tau} = t, \, \, \, x_{\tau} = 1, \text{ and } U_{\tau} = 0.\]
 
-    Since, as the tip says, we set $x = \tau$ and use the $\xi$ variable to parameterize the values of $t$ along the $t$-axis, we know 
-    \[ t(\xi = 0) = 0 \, \, \, \text{and} \, \, \, x(\xi = 0) = \tau.\]
+    Since, as the tip says, we set $x = \tau$ and use the $\xi$ variable to parameterize the values of $t$ along the $t$-axis, we know $t(\tau = 0) = \xi.$ \\
 
     Solving for $t$ and $x$ by integrating with respect to $\tau$ and using these initial values, we find that 
     \[ t = \xi e^{\tau} \, \, \, \text{ and } \, \, \, x = \tau.\]
 
     Solving for $U$, we get that \[ U = f(\xi)\] which also matches the given initial condition $U(\xi, 0) = f(\xi).$ \\
 
-    Now, solving for $\xi$ and $\tau$ in terms of $x$ and $t$, we get that \[ \tau = x \, \, \, \text{ and } \, \, \, \xi = te^{-x}.\]
+    Now, inverting our change of coordinates by expressing $\xi$ and $\tau$ in terms of $x$ and $t$, we get that \[ \tau = x \, \, \, \text{ and } \, \, \, \xi = te^{-x}.\]
 
     Plugging this change of variables back into our solution, we get that
     \[u(x(\xi, \tau), t(\xi, \tau)) = f(\xi(x, t)) = f(te^{-x}).\]
@@ -84,32 +83,32 @@
     Let $u(x, t) = a + b\xi$, where $\xi = te^{-x}$ as we found in part (a). Equivalently, we have that
     \[ u(x, t) = a + bte^{-x}.\]
 
-    Calculating the partial derivatives, we get that \[ u_t = a + be^{-x} \,\,\, \text { and } \,\,\, u_x = a-bte^{-x}.\]
+    Calculating the partial derivatives, we get that \[ u_t = be^{-x} \,\,\, \text { and } \,\,\, u_x = -bte^{-x}.\]
 
     Plugging these partials back into our PDE, we get
-    \begin{align*} tu_t + u_x &= t\left( a+be^{-x}\right) + \left(a-bte^{-x}\right) \\
-      &= \left(at + bte^{-x}\right) + \left(a - bte^{-x} \right) \\
-      &= at + a.
+    \begin{align*} tu_t + u_x &= t\left(be^{-x}\right) + \left(-bte^{-x}\right) \\
+      &= bte^{-x}  - bte^{-x} \\
+      &= 0.
     \end{align*}
 
-    Thus, to satisfy the initial PDE problem $tu_t + u_x = 0$ for all $t  > 0, x \in \mathbb{R}$, we must have that \[at + a = 0\] for all $t > 0$, meaning that $a$ must be $0$. \\
+    Thus, every value of $a, b$ will solve the initial PDE problem $tu_t + u_x = 0$ for all $t  > 0, x \in \mathbb{R}$. \\
 
     On the other hand, to satisfy the initial value $u(x, 0) = 1$, we must have
     \begin{align*} u(x, 0) &= a + b(0)e^{-x} \\
       &= a \\
       &= 1.\end{align*}
+
+    Thus, we must have that $a = 1$ and $b \in \mathbb{R}$ for the function $u(x, t) = a+b\xi = a+b(te^{-x})$ to solve the PDE and initial value $u(x, 0) = 1.$ \\
     \end{solution}
-    \item \textbf{Is the PDE with the initial value $f(x) = 1$ \textit{well-posed} or \textit{ill-posed}? Why?}
-    \begin{solution}
-      Let $f(x) = 1$. We will now check whether the solution $u(x, t) = f(te^{-x})$ satisfies the initial value
-      \[ u(x, 0) = 1 \, \, \, \text{for } x \in \mathbb{R}.\]
-  
-      Plugging in $t=0$ to our solution, we get that \[ u(x, 0) = f(0e^{-x}) = f(0) \text{ for } x \in \mathbb{R} \]
-  
-      However, notice that to satisfy the initial condition, we must have that $u(x, 0) = f(x) = x$ for $x\in \mathbb{R}$. \\
-  
-      Clearly, \[ u(x, 0) = f(0) \neq f(x) \text{ for } x \in \mathbb{R}, \] and so the solution we found in (a) does not satisfy the initial value.
-      \end{solution}
+
+    \textbf{Is the PDE with the initial value $f(x) = 1$ \textit{well-posed} or \textit{ill-posed}? Why?}
+    \begin{solution} 
+
+    From our above work, we found that any solution $u(x, t) = a + b\xi = a + bte^{-x}$ with $a = 1$ and $b \in \mathbb{R}$ solves the PDE and satisfies the initial value $u(x, 0) = 1.$ 
+    Consequently, there are infinitely many solutions to the PDE with initial value $f(x) = 1.$ \\
+
+    For PDE to be well-posed, it must have a unique solution. Since the PDE with initial value $f(x) = 1$ has infinitely many solutions, it is an \boxed{\text{ill-posed}} PDE.
+    \end{solution}
 \end{enumerate}
 
 \end{document}
