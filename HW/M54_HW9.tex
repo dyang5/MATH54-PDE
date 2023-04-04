@@ -60,7 +60,12 @@ Let $f(x)=0$ for $0<x<1$ and $f(x)=1$ for $1<x<3$.
 \begin{solution}
 By definition, the Fourier cosine series of $f$ is \[ \frac{b_0}{2} + \sum\limits_{n=1}^{\infty} b_n \cos\left(\frac{n\pi x}{3}\right),\]
 
-where \[b_0 = \int_{0}^{3} f(x) \, dx = \int_{1}^3 1 \, dx = \frac{2}{3}\] and \[ b_n = \frac{2}{3} \int_0^3 f(x) \cos\left(\frac{n\pi x}{3}\right)\] 
+where \[b_0 = \int_{0}^{3} f(x) \, dx = \int_{1}^3 1 \, dx = \frac{2}{3}\] and 
+\begin{align*} b_n &= \frac{2}{3} \int_0^3 f(x) \cos\left(\frac{n\pi x}{3}\right) \, dx \\
+&= \frac{2}{3} \int_1^3 \cos\left(\frac{n\pi x}{3}\right) \, dx.\end{align*}
+
+Simplifying further, we get that \begin{align*}b_n &= \frac{2}{3} \left[ \frac{3}{n\pi} \sin\left( \frac{n\pi x}{3}\right)\right]_1^3 \\ 
+&=  \frac{2}{n\pi} \left( \sin(n\pi) - \sin\left( \frac{n\pi}{3}\right)\right)\end{align*}
 \end{solution}
 
 \underline{Chapter 3.2 Problem 6} \\
