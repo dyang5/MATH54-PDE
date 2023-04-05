@@ -118,23 +118,23 @@ where $a_n$ are the Fourier coefficients defined on page 148: $a_n = \frac{2}{\p
 \begin{solution}
 By definition, the Fourier cosine series of $f$ is \[ \frac{b_0}{2} + \sum\limits_{n=1}^{\infty} b_n \cos\left(\frac{n\pi x}{3}\right),\]
 
-where \[b_0 = \int_{0}^{3} f(x) \, dx = \int_{1}^3 1 \, dx = \frac{2}{3}\] and 
+where \[b_0 = \frac{2}{3}\int_{0}^{3} f(x) \, dx = \frac{2}{3}\int_{1}^3 1 \, dx = \frac{4}{3}\] and 
 \begin{align*} b_n &= \frac{2}{3} \int_0^3 f(x) \cos\left(\frac{n\pi x}{3}\right) \, dx \\
-&= \frac{2}{3} \int_1^3 \cos\left(\frac{n\pi x}{3}\right) \, dx.\end{align*}
+&= \frac{2}{3} \int_1^3 \cos\left(\frac{n\pi x}{3}\right) \, dx\end{align*}
 
-Simplifying further, we get that \begin{align*}b_n &= \frac{2}{3} \left[ \frac{3}{n\pi} \sin\left( \frac{n\pi x}{3}\right)\right]_1^3 \\ 
+for positive integers $n$. Simplifying further, we get that \begin{align*}b_n &= \frac{2}{3} \left[ \frac{3}{n\pi} \sin\left( \frac{n\pi x}{3}\right)\right]_1^3 \\ 
 &=  \frac{2}{n\pi} \left( \sin(n\pi) - \sin\left( \frac{n\pi}{3}\right)\right)\end{align*}
 
 Note that $\sin(n\pi) = 0$ for all integer $n$. Using this fact, we can simplify our general term to
 \[ b_n = \frac{2}{n\pi} \left( -\sin\left( \frac{n\pi}{3}\right)\right)\]and plugging in a few values of $n$ to determine the first nonzero coefficients, we find that
-\[b_0 = \frac{2}{3}\]
+\[b_0 = \frac{4}{3}\]
 \[b_1 = \frac{2}{1\pi}\left( -\sin\left(\frac{\pi}{3}\right) \right) = -\frac{\sqrt{3}}{\pi}\]
 \[b_2 = \frac{2}{2\pi}\left( -\sin\left(\frac{2\pi}{3}\right) \right) = -\frac{\sqrt{3}}{2\pi}\]
 \[b_3 = \frac{2}{3\pi}\left( -\sin\left(\frac{3\pi}{3}\right) \right) = 0\]
 \[b_4 = \frac{2}{4\pi}\left( -\sin\left(\frac{4\pi}{3}\right) \right) = \frac{\sqrt{3}}{4\pi}.\]
 
 Thus, since the Fourier cosine series of $f$ is \[ \frac{b_0}{2} + \sum\limits_{n=1}^{\infty} b_n \cos\left(\frac{n\pi x}{3}\right),\] we find that the first $4$ nonzero terms of the Fourier cosine series of $f$ are
-\[ \frac{b_0}{2} = \boxed{\frac{1}{3}} \]
+\[ \frac{b_0}{2} = \boxed{\frac{2}{3}} \]
 \[ b_1\cos\left( \frac{1\pi x}{3}\right) = \boxed{-\frac{\sqrt{3}}{\pi}\cos\left(\frac{\pi x}{3}\right)}\]
 \[ b_2\cos\left( \frac{2\pi x}{3}\right) = \boxed{-\frac{\sqrt{3}}{2\pi}\cos\left(\frac{2\pi x}{3}\right)}\]
 \[ b_4\cos\left( \frac{4\pi x}{3}\right) = \boxed{\frac{\sqrt{3}}{4\pi}\cos\left(\frac{4\pi x}{3}\right)}\]
