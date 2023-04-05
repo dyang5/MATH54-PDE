@@ -54,10 +54,10 @@ Substituting these partials into our original PDE $u_t = ku_{xx} - hu$, we get t
 \[ y(x)g'(t) = ky''(x)g(t) - hy(x)g(t).\]
 
 Since neither $y(x)$ nor $g(t)$ are $0$, we can separate this equation further by dividing both sides by $y(x)g(t)$. This gives us
-\[ \frac{g'(t)}{g(t)} = \frac{y''(x) -hy(x)}{y(x)}.\]
+\[ \frac{g'(t)}{g(t)} = \frac{ky''(x) -hy(x)}{y(x)}.\]
 
 For this equation to hold true for all values of $x \in (0, l)$ and $t>0$ is for them to evaluate to the same constant, and so we have
-\[ \frac{g'(t)}{g(t)} = \frac{y''(x) -hy(x)}{y(x)} = C\]
+\[ \frac{g'(t)}{g(t)} = \frac{ky''(x) -hy(x)}{y(x)} = C\]
 
 for some constant $C$. \\
 
@@ -65,44 +65,44 @@ Rewriting the above equation as two separate ODEs, we have that
 \[
 \begin{cases}
   g'(t) = Cg(t) \\
-  y''(x) = (C+h)y(x)
+  y''(x) = \frac{C+h}{k}y(x)
 \end{cases}
 \]
 
 We will begin by solving for $y(x).$ Note that, just like in our in-class example, nontrivial solutions $y(x)$ that satisfy the boundary conditions $y(0)=y(l) = 0$ will only occur when $C+h < 0$. Consequently, we can solve the ODE 
-\[ y''(x) - (C+h)y(x) = 0\] when $C+h < 0$ to get the general form for $y(x)$: 
-\[ y(x) = a\sin\left(\sqrt{-(C+h)}x\right) + b\cos\left(\sqrt{-(C+h)}x\right).\]
+\[ y''(x) - \frac{(C+h)}{k}y(x) = 0\] when $\frac{C+h}{k} < 0$ to get the general form for $y(x)$: 
+\[ y(x) = a\sin\left(\sqrt{\frac{-(C+h)}{k}}x\right) + b\cos\left(\sqrt{\frac{-(C+h)}{k}}x\right).\]
 
 By the boundary conditions, we know that $y(0) = 0$ and $y(l) = 0.$ To satisfy $y(0) = 0$, we must have that
 \[ y(0) = a\sin(0) + b\cos(0) = 0, \]
 so $b = 0$. On the other hand, for $y(l) = 0$, we must have that
-\begin{align*}y(l)&= a\sin\left(\sqrt{-(C+h)}l\right) + 0\cos\left(\sqrt{-(C+h)}l\right) \\
-&= a\sin\left(\sqrt{-(C+h)}l\right) = 0.
+\begin{align*}y(l)&= a\sin\left(\sqrt{\frac{-(C+h)}{k}}l\right) + 0\cos\left(\sqrt{\frac{-(C+h)}{k}}l\right) \\
+&= a\sin\left(\sqrt{\frac{-(C+h)}{k}}l\right) = 0.
 \end{align*}
 
-Since the sine function is $0$ at integer multiples of $\pi$, we know that \[\sqrt{-(C+h)}l = \pi k \] for some integer $k$. Equivalently, we have that 
-\begin{align*}\sqrt{-(C+h)} &= \frac{\pi k}{l} \\
--(C+h) &= \left( \frac{\pi k}{l} \right)^2 \end{align*}
+Since the sine function is $0$ at integer multiples of $\pi$, we know that \[\sqrt{\frac{-(C+h)}{k}}l = \pi n \] for some integer $n$. Equivalently, we have that 
+\begin{align*}\sqrt{\frac{-(C+h)}{k}} &= \frac{\pi n}{l} \\
+\frac{-(C+h)}{k} &= \left( \frac{\pi n}{l} \right)^2 \end{align*}
 
-and so solving for $C$ gives us \[C = -\left( \frac{\pi k}{l} \right)^2 - h.\]
+and so solving for $C$ gives us \[C = -k\left( \frac{\pi n}{l} \right)^2 - h.\]
 
-Recall that our solution for $y(x)$ is \[y(x) =  a\sin\left(\sqrt{-(C+h)}x\right)\]
-with $C = -\left( \frac{\pi k}{l} \right)^2 - h$ for positive integers $k$. \\
+Recall that our solution for $y(x)$ is \[y(x) =  a\sin\left(\sqrt{\frac{-(C+h)}{k}}x\right)\]
+with $C = -k\left( \frac{\pi n}{l} \right)^2 - h$ for positive integers $n$. \\
 
-Substituting our expression for $C$ and using the variable $n$ in place of $k$ to take on positive values, we find that our general solution for $y$ is 
+Substituting our expression for $C$, we find that our general solution for $y$ is 
 \[ y_n(x) = a_n \sin\left(\frac{\pi n}{l}x\right) \text { for positive integers } n.\]
 
 We can now solve our other ODE for $g(t)$. We had that $g'(t) = Cg(t)$. Solving and using the general value for $C$, we have that $g(t) = e^{Ct}$ so 
-\[ g_n(t) = e^{\left( -\left(\frac{\pi n}{l}x\right)^2 - h\right)t}\]
+\[ g_n(t) = e^{\left(-k\left( \frac{\pi n}{l} \right)^2 - h\right)t}\]
 
 Thus, our product solutions that satisfy the original PDE and its boundary conditions are 
-\[ u_n(x, t) = y_n(t) g_n(t) = a_ne^{\left( -\left(\frac{\pi n}{l}x\right)^2 - h\right)t} \sin\left(\frac{\pi n}{l} x\right). \]
+\[ u_n(x, t) = y_n(t) g_n(t) = a_ne^{\left(-k\left( \frac{\pi n}{l} \right)^2 - h\right)t} \sin\left(\frac{\pi n}{l} x\right). \]
 
 Using superposition, our solution $u(x, t)$ is 
 
-\[ \boxed{u(x, t) = \sum\limits_{n=1}^{\infty} a_ne^{\left( -\left(\frac{\pi n}{l}x\right)^2 - h\right)t} \sin\left(\frac{\pi n}{l} x\right)}\]
+\[ \boxed{u(x, t) = \sum\limits_{n=1}^{\infty} a_ne^{\left(-k\left( \frac{\pi n}{l} \right)^2 - h\right)t} \sin\left(\frac{\pi n}{l} x\right)}\]
 
-where $a_n$ are the Fourier coefficients defined on page 148: $a_n = \frac{2}{\pi}\int_0^\pi f(x) \sin\left(\frac{\pi n}{l} x \right).$
+where $a_n$ are the Fourier coefficients defined on page 148: $a_n = \frac{2}{l}\int_0^l f(x) \sin\left(\frac{\pi n}{l} x \right).$
 
 \end{solution}
 \newpage
