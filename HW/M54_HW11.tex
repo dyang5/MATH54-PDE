@@ -19,7 +19,7 @@
 
 	\hrule
 	\begin{center}
-		{\Large Homework 8} \\ % Replace with the homework number
+		{\Large Homework 11} \\ % Replace with the homework number
 		\vspace{0.2cm}
 		Partial Differential Equations, Spring 2023 \hfill David Yang % Replace with your name(s)
 	\end{center}
@@ -31,11 +31,22 @@
 
 \underline{Chapter 4.7, Example 4.28} \\
 
+\textbf{Consider the problem}
+
+\[ u_t - 3u_{xx} = 0, \, \, \, 0 < x < 1, \, t > 0,\]
+\[ u(0, t) = 2e^{-t}, \, \, \, u(1, t) = 1\]
+\[ u(x, 0) = x^2, \, \, \, 0 < x < 1.\]
 \textbf{Complete the calculation (Solve the $w$ PDE using the eigenfunction method).}
 
-\begin{enumerate}[(a)]
-    \item sd
-\end{enumerate}
+\begin{solution}
+Following Example 4.28, we homogenize the boundary condition by defining \[ w(x, t) = u(x, t) - \left( 2e^{-t} + \left(1-2e^{-t}\right)x\right).\]
+
+Then $w$ solves the problem 
+
+\[ w_t - 3u_{xx} = 2e^{-t}(1-x), \, \, \, 0 < x < 1, \, t > 0,\]
+\[ w(0, t) = w(1, t), \, \, \, t > 0\]
+\[ w(x, 0) = x^2+x, \, \, \, 0 < x < 1.\]
+\end{solution}
 
 \underline{Chapter 4.7, Exercise 7} \\
 
