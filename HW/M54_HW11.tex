@@ -1,0 +1,138 @@
+\documentclass[11pt]{article}
+\usepackage{graphics}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage[shortlabels]{enumitem}
+
+
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+  
+\newcommand{\N}{\mathbb{N}}
+\setlength\parindent{0pt}
+\begin{document}
+
+	\hrule
+	\begin{center}
+		{\Large Homework 8} \\ % Replace with the homework number
+		\vspace{0.2cm}
+		Partial Differential Equations, Spring 2023 \hfill David Yang % Replace with your name(s)
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+
+\underline{Chapter 4.7, Example 4.28} \\
+
+\textbf{Complete the calculation (Solve the $w$ PDE using the eigenfunction method).}
+
+\begin{enumerate}[(a)]
+    \item sd
+\end{enumerate}
+
+\underline{Chapter 4.7, Exercise 7} \\
+
+\textbf{Solve twice and check your answers match:}
+
+\begin{enumerate}[(a)]
+    \item \textbf{Method 1: Apply the eigenfunction method directly to the non-homogeneous PDE for $u$.}
+    \item \textbf{Method 2: Observe that the source term is time-independent. Convert the PDE to a homogeneous PDE for $w = u - u_{ss}$ where $u_{ss}$ is the steady state solution to the PDE.
+    (see Remark 4.29 on page 212). Solve the homogeneous PDE for $w$ and recover $u$ as $u = w + u_{ss}$.}
+\end{enumerate}
+
+\newpage
+
+\underline{Chapter 4.2, Exercise 5} \\
+
+\textbf{For the SLP (Sturm-Liouville Problem)} \[-y'' = \lambda y, \, \, \, 0 < x < l; \, \, \, y(0) - ay'(0) = 0, \, \, \, y(l) + by'(l) = 0,\]
+\textbf{show that $\lambda = 0$ is an eigenvalue if and only if $a+b = -l.$} \\
+
+\begin{solution}
+If $\lambda = 0$ is an eigenvalue, we have that $-y''(x) = 0$, so $y''(x) = 0$ and \[y(x) = C_1x + C_2.\]
+
+Furthermore, plugging in $x = 0$, we find that $y(0) = C_2$ and $y'(0) = C_1$. Plugging these into the first boundary condition, we get that
+\[ C_2 - aC_1 = 0.\]
+
+Similarly, plugging in $x = l$, we find that $y(l) = C_1 l + C_2$ and $y'(l) = C_1$. Plugging these into the second boundary condition, we get that 
+\[ C_1l + C_2 + bC_1 = (b+l) C_1 + C_2 = 0.\]
+
+We are left with the system of equations
+\[ \begin{cases}
+    -aC_1 + C_2 = 0 \\
+    (b+l)C_1 + C_2 = 0
+\end{cases}. \]
+
+Solving for $C_1$ by subtracting the two equations, we find that
+\[ C_1(-a-b-l) = 0.\]
+
+Since we must have that $C_1$ and $C_2$ are not both $0$, we know that the SLP has eigenvalue $0$ if and only if $-a-b-l = 0$, or when $a+b = -l$, as desired.
+\end{solution}
+
+\newpage
+
+\underline{Chapter 4.2, Exercise 9} \\
+
+\textbf{Find the eigenvalues and eigenfunctions for the following problem with \textit{periodic} boundary conditions:}
+\[ -y''(x) = \lambda y(x), \, \, \, 0 < x < l, \]
+\[ y(0) = y(l), y'(0) = y'(l).\]
+
+\begin{solution}
+We will split our work into three cases: when $\lambda = 0, \lambda < 0$, and $\lambda > 0$. \\
+
+First, if $\lambda = 0$, then we find that $y''(x) = 0$, so $y = ax + b$ for constants $a, b$. However, if $y(0) = y(l)$, then we must have that $a = 0$.
+There are no further restrictions on the constant $b$, so our boundary conditions tell us that the eigenvalue $\boxed{\lambda = 0 \text{ corresponds to a constant eigenfunction}}.$ \\
+
+Next, if $\lambda < 0$, then $y''(x) + \lambda y(x) = 0$ has solution \[ y(x) = ae^{-\sqrt{\lambda} x} + be^{\sqrt{\lambda x}}. \]
+As we've shown before, exponential solutions cannot satisfy periodic boundary conditions, and so we have a trivial solution in this case. \\
+
+Finally, we consider the case when $\lambda > 0$. The ODE $y''(x) + \lambda y(x) = 0$ will then have solution
+\[ y(x) = a\cos(\sqrt{\lambda}x) + b\sin(\sqrt{\lambda}x).\]
+
+The boundary condition $y(0) = y(l)$ tells us that \[ b = a\sin(\sqrt{\lambda} l) + b\cos(\sqrt{\lambda} l)\]
+
+and the boundary condition $y'(0) = y'(l)$ tells us that \[ a\sqrt{\lambda} = a\sqrt{\lambda}\cos(\sqrt{\lambda} l) - b\sqrt{\lambda}\sin(\sqrt{\lambda} l)\]
+
+Thus, after simplification, our boundary conditions give us the following sytem of equations:
+\[ \begin{cases}
+a\sin(\sqrt{\lambda} l) + b(\cos(\sqrt{\lambda} l) - 1) = 0 \\
+a\cos(\sqrt{\lambda} l - 1) - b(\sin(\sqrt{\lambda} l)) = 0
+\end{cases}.\]
+
+Rewriting this system as a matrix expression, we have that
+\[ 
+\begin{bmatrix}
+\sin(\sqrt{\lambda} l) & \cos(\sqrt{\lambda} l) - 1 \\
+\cos(\sqrt{\lambda} l) - 1 & -\sin(\sqrt{\lambda} l) \\
+\end{bmatrix}
+\begin{bmatrix}
+a \\ 
+b
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\ 0
+\end{bmatrix}.\]
+
+This system only has a nontrivial eigenfunction if $a$ and $b$ are not both $0$. Equivalently, we must have that
+\[ \mathrm{det} \left( \begin{bmatrix}
+    \sin(\sqrt{\lambda} l) & \cos(\sqrt{\lambda} l) - 1 \\
+    \cos(\sqrt{\lambda} l) - 1 & -\sin(\sqrt{\lambda} l) \\
+    \end{bmatrix} \right) = 2\cos(\sqrt{\lambda} l) = 0. \]
+
+Since $\cos(\lambda l) = 0$, we must have that $\lambda l = 2\pi n$ for integer $n$, and so we have that the eigenvalues 
+\[\boxed{\lambda = \left( \frac{2\pi n}{l}\right)^2}\] 
+
+correspond to eigenfunctions \[ \boxed{y(x) = a_n \sin \left( \frac{2\pi n}{l} x\right) + b_n \cos \left( \frac{2\pi n}{l} x\right)}.\]
+in the given problem. \end{solution}
+
+\newpage
+
+\underline{Chapter 4.4, Exercise 1} \\
+\end{document}
