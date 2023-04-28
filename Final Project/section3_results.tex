@@ -1,0 +1,51 @@
+\section{Deriving the Stable Age Structure}
+A common technique used to study demographic models is to determine the solution over a long-time period. Consequently, we will derive the \textbf{stable age structure} of the above general age-structured model system. \\
+
+First, note that the initial condition $u(a, 0) = f(a)$ represents the initial population of females at age $a$. When looking for a long-term solution, we ignore this condition as these individuals and their offspring will die after a finite time period; said differently, we know births from the initial population will not affect our long-term solution. \\
+
+When deriving the solution, we consider the case where the maternity function $b = b(a,t)$ is independent of time and thus, $b = b(a)$, a function of just the age. Now, we are ready to solve for $u$ as a stable age structure.  \\
+
+We start by assuming the solution takes on the form \[ u(a, t) = U(a)e^{rt}\]
+
+where $U(a)$ is some unknown age structure and $r$ represents the growth rate of the population for large $t$. \\
+
+For our above solution form, we get that
+\[ u_a = U'(a)e^{rt} \text{ and } u_t = rU(a)e^{rt}.\]
+
+Substituting these results and the solution form for $u(a, t)$ into the McKendrick-von Foerster equation $u_t = -u_a - m(a)u$ we get that
+
+\[ rU(a)e^{rt} = -U'(a)e^{rt} - m(a)U(a)e^{rt}.\]
+
+Simplifying by dividing both sides by $e^{rt}$ and grouping terms, we get an ODE for $U(a):$
+\[ U'(a) = -(m(a) + r)U(a).\]
+
+Applying separation of variables (dividing both sides by $U(a)$ and integrating), we get the solution 
+\[ U(a) = Ce^{-ra}e^{-\int_0^a m(s) \, ds}\]
+
+for some constant $C$. \\
+
+Let us define $S(a) = e^{-\int_0^a m(s) \, ds}$ to be the \textit{survivorship function}, the probability of surviving at age $a$. Substituting this into our age structure function, we get that \[U(a) = Ce^{-ra}S(a)\]
+
+With this, we can rewrite our long-term solution $u(a, t) = U(a)e^{rt}$ as
+\begin{align*} u(a, t) &= \left(Ce^{-ra}S(a)\right)e^{rt} \\
+&= Ce^{r(t-a)} S(a).\end{align*}
+
+To determine the growth constant $r$, we can substitute our long-term solution $u(a, t) = Ce^{r(t-a)}S(a)$ into our nonlocal boundary condition 
+\[ u(0, t) = \int_0^{\infty} b(a, t) u(a, t) \, da.\]
+
+And since we assumed our maternity function is independent of time, we can update this boundary condition to be 
+\[ u(0, t) = \int_0^{\infty} b(a) u(a, t) \, da.\]
+
+
+Since $u(0, t) = Ce^{rt}S(0) = Ce^{rt}$, we get that
+\[ Ce^{rt} = \int_0^{\infty} b(a) Ce^{r(t-a)}S(a) \, da\]
+
+or equivalently, after dividing both sides by $Ce^{rt}$,
+\[ 1 = \int_0^{\infty} b(a) e^{-ra}S(a) da.\]
+
+The above equation is a form of the \textbf{Euler–Lotka equation}, one of the most important equations in age-structured population growth models \cite{hill}. One can solve for $r$ from the Euler-Lotka Equation using numerical methods \cite{hill}. \\
+
+Consequently, from the McKendrick-von Foerster equation and its associated general age-structured model, we have derived the long-time age structure of the population \[ u(a, t) = Ce^{r(t-a)}S(a) \] where $C$ is a constant and $S(a)$ represents the survivorship function \[  S(a) = e^{-\int_0^a m(s)} ds \]
+and the Euler-Lotka Equation
+\[ 1 = \int_0^{\infty} b(a) e^{-ra}S(a) da, \]
+ which can be used to solve for the growth rate $r$. 

@@ -1,11 +1,11 @@
-\section{Mathematical Content}\setcounter{secnumdepth}{2}
+\section{The McKendrick-von Foerster Equation}\setcounter{secnumdepth}{2}
 
 \subsection{Context}
 
 
 Consider a population of female organisms with age structure at time $t=0$ given by $f(a)$. Equivalently, $f(a)da$ is the number of females between age $a$ and age $a+da$ in the population. \\
 
-Though age should technically be finite, let the domain for $a$ be $[0, \infty).$ The goal of the McKendrick-von Forester equation is to model the age structure $u=u(a, t)$ for the population for any time $t > 0$. By definition, $u(a, t) da$ represents the number of females at time $t$ between ages $a$ and $a+da$. The total female population at time $t$ can consequently be represented as
+Though age should technically be finite, let the domain for $a$ be $[0, \infty).$ The goal of the McKendrick-von Foerster equation is to model the age structure $u=u(a, t)$ for the population for any time $t > 0$. By definition, $u(a, t) da$ represents the number of females at time $t$ between ages $a$ and $a+da$. The total female population at time $t$ can consequently be represented as
 \[ N(t) = \int_0^{\infty} u(a, t) da.\]
 
 Note that the quantity $u(0, t)$, the number of newborns at time $t$, is not known; this quantity depends on the reproduction rate of females and the mortality rate. We define $m(a)$ to be the \textit{per capita mortality rate}, which will be given to us in any initial statement of the problem, and $b(a, t)$ to be the \textit{fecundity rate} (also known as the \textit{maternity function}), the average number of offspring per female at time $t$. 
@@ -13,28 +13,29 @@ Note that the quantity $u(0, t)$, the number of newborns at time $t$, is not kno
 
 
 
-The general form of the \textbf{McKendrick–von Forester equation}, which models the population dynamics described above, is
+The general form of the \textbf{McKendrick–von Foerster equation}, which models the population dynamics described above, is
     \[ u_t = -u_a - m(a)u. \]
     
-This equation is a form of the advection equation where $m(a)$ represents a function that takes in age $a$ and returns the per capita mortality rate. This is also known as the \emph{force of mortality.} We use $u = u(a, t)$ to represent the density of a population of age $a$ and time $t$, for nonnegative $a$ and $t$. Note that $a$ and $t$ are measured in the same units.  \\
+This equation is a form of the advection equation where $m(a)$ is the per capita mortality rate defined above. Similarly, $u = u(a, t)$ represents the density of a population of age $a$ and time $t$, for nonnegative $a$ and positive $t$ (where $a$ and $t$ are measured in the same units).  More precisely, the McKendrick–von Foerster equation is the advection equation with speed one and sink term given by the mortality rate; notice that the flux is $\phi = u$, or the density of the population at that age. This means we can use a certain age, \textit{a}, and a time, \textit{t}, and then compute the density of the population of that particular age at that time. \\
 
-We have initial condition 
 
+We can now derive the initial conditions and boundary values for the population dynamics of the given equation. \\
+
+Note that we have an initial condition 
 \[u(a, 0)=f(a), \, \, \, a \geq 0.\]
 
-where, as stated before, $f(a)$ represents the initial population of female organisms of age $a$ at time $t=0.$ We also have boundary condition 
+where, as stated before, $f(a)$ represents the initial population of female organisms of age $a$ at time $t=0.$ \\
+
+Recall that $u(a, t) $ represents the number of females at time $t$ at age $a$, and $b(a, t)$ is the average reproduction rate of females of age $a$ at time $t.$ Summing over all possible ages, from $0$ to infinity, we derive the boundary condition $u(0,t) = B(t)$ where $B(t)$ represents the total amount of offspring produced by females of all ages at time $t$. Our work tells us that
 
 \[ u(0,t) = \int_0^{\infty}b(a,t)u(a, t) \, da, \, \, \, t>0.\]
 
-Here, we see that $u$ is part of our boundary condition. This is known as a \emph{nonlocal boundary condition}, where the unknown solution is a part of the condition. As stated previously, $u(a, t) $ represents the number of females at time $t$ at age $a$ and $b(a, t)$ is the average reproduction rate of females of age $a$ at time $t.$ Summing over all possible ages, from $0$ to infinity, will give us $u(0,t) = B(t)$ where $B(t)$ represents the total amount of offspring produced by females of all ages at time $t$. \\
+Here, we see that $u$ is part of our boundary condition. This is known as a \emph{nonlocal boundary condition}, where the unknown solution is a part of the condition. \\
 
-Furthermore, notice that in particular, the McKendrick–von Forester equation is the advection equation with speed one and sink term given by the mortality rate; notice that the flux is $\phi = u$, or the density of the population at that age. \\
-
-This means we can use a certain age, \textit{a}, and a time, \textit{t}, and then compute the density of the population of that particular age at that time. \\
-
-We have now derived the general age-structured model.
+We have now derived the general age-structured model
 \[ u_t = -u_a-m(a)u, \, \, \, a>0, \, t>0\]
 \[ u(0,t) = \int_0^{\infty}b(a,t)u(a, t) \, da, \, \, \, t>0\]
 \[ u(a, 0)=f(a), \, \, \, a \geq 0\]
-\\
+
+extending from the McKendrick-von Foerster Equation. 
 
