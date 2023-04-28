@@ -46,14 +46,90 @@ Then $w$ solves the problem
 \[ w_t - 3u_{xx} = 2e^{-t}(1-x), \, \, \, 0 < x < 1, \, t > 0,\]
 \[ w(0, t) = w(1, t), \, \, \, t > 0\]
 \[ w(x, 0) = x^2+x, \, \, \, 0 < x < 1.\]
+
+To solve this PDE using the eigenfunction, we begin by determining the eigenfunctions for the homogeneous PDE
+\[ w_t - 3w_{xx} = 0\]
+\[ w(0, t) = w(1, t) = 0.\]
+
+We will use the separation of variables method and let $w = X(x)T(t)$. Plugging this into our PDE and simplifying to the desired form, we get
+\[ \frac{X_{xx}}{X} = \frac{T_t}{3T} = -\lambda.\]
+
+Solving the $X$ ODE, we find that $\lambda = 0$ and $\lambda < 0$ yield trivial solutions, with $\lambda > 0$ giving the solution 
+\[ X = C_1\cos(\sqrt{\lambda} x) + C_2 \sin(\sqrt{\lambda}x).\]
+
+Plugging in the initial conditions $X(0) = X(1) = 0$, we find that 
+\[C_2 \sin(\sqrt{\lambda}) = 0,\] meaning that $\sqrt{\lambda} = \pi n$ for integer $n$. \\
+
+Thus, we find that the eigenfunction $X_n = \sin(\pi n x)$ corresponding to eigenvalues $\lambda_n = (\pi n)^2.$ \\
+
+We now have the eigenfunctions to the homogeneous PDE. Defining our solution $w(x, t)$ with the eigenfunctions, we have \[ w(x, t) = \sum\limits_{n=0}^{\infty} C_n(t) \sin(\pi n x)\]
+
+Furthermore, our initial source term $f(x, t) = 2e^{-t}(1-x)$ can also be expressed with the eigenfunctions:
+\[ f(x, t) =2e^t(1-x) =\sum\limits_{n=1}^\infty f_n(t)\sin(\pi n x)\]
+
+with $f_n(t) = 2\int_0^1 f(x, t) \sin(\pi n x).$ \\
+
+We can do the same for the initial condition $w(x, 0) = g(x) = x^2 + x$ where 
+\[ g(x) = \sum\limits_{n=1}^\infty g_n(x)\sin(\pi n x)\]
+with $g_n(t) = 2\int_0^1 g(x) \sin(\pi n x).$
+
+Plugging in our work into the initial PDE $w_t - 3w_{xx} = 2e^{t}(1-x) = f(x)$, we get that
+\[ \sum\limits_{n=1}^{\infty} C_n'(t) \sin(\pi n x) + 3C_n(n\pi)^2 \sin(\pi n x) = \sum\limits_{n=1}^{\infty} f_n(t)\sin(\pi n x).\]
+
+Matching both sides term-by-term, we arrive at the ODE
+\[ C_n'(t) + 3(n\pi)^2 C_n = f_n(t).\]
+
+Solving this ODE using integrating factors, we get the solution
+\[ C_n(t) = C_n(0)e^{-3n^2\pi^2t} + \int_0^t f_n(\tau) e^{-3n^2\pi^2 (t-\tau)} d\tau. \]
+
+Note that $w(x, 0) = \sum\limits_{n=1}^{\infty} C_n(0)\sin(n\pi x)$, so we know $C_n(0) = g_n = 2\int_0^1 g(x) \sin(\pi n x) \, dx$ by definition. Thus, we have a formal expression for $C_n$, our Fourier sine coefficients for $w$. \\
+
+Thus, our solution to the $w$ PDE is 
+\begin{align*}w(x, t) &= \sum\limits_{n=1}^{\infty} C_n(t) \sin(n\pi x) \\
+&= \sum\limits_{n=1}^{\infty} C_n(0)e^{-3n^2\pi^2t} + \int_0^t f_n(\tau) e^{-3n^2\pi^2 (t-\tau)} d\tau \\
+&= \sum\limits_{n=1}^{\infty} \left[\left(2\int_0^1 g(x) \sin(\pi n x) \, dx\right) \cdot e^{-3n^2\pi^2 t} + \int_0^t f_n(\tau) e^{-3n^2\pi^2 (t-\tau)} d\tau\right]\sin(n\pi x). \end{align*}
 \end{solution}
+
+\newpage
 
 \underline{Chapter 4.7, Exercise 7} \\
 
 \textbf{Solve twice and check your answers match:}
+\[\begin{array}{c}
+u_t = ku_{xx} + \sin(3\pi x), \, \, \, 0 < x < 1, t > 0 \\
+u(0, t) = u(1, t) = 0 \, \, \, t>0 \\
+u(x,0) = \sin(\pi x) \, \, \, 0 < x < 1
+\end{array}\]
+
 
 \begin{enumerate}[(a)]
     \item \textbf{Method 1: Apply the eigenfunction method directly to the non-homogeneous PDE for $u$.}
+\end{enumerate}
+
+\begin{solution}
+We first solve the homogeneous PDE to determine the eigenfunctions. The homogeneous PDE is $u_t - ku_{xx} = 0$, which has eigenfunctions $\sin(n\pi x)$ corresponding to eigenvalues $\lambda = (n\pi)^2.$ \\
+
+Thus, we can construct our solution as 
+\[ u(x, t) = \sum\limits_{n=1}^{\infty} C_n(t) \sin(n\pi x), \] where we will determine our $C_n(t)$ coefficients from the ODE and its initial values. \\
+
+We can also expand the initial condition $u_t - ku_{xx} = \sin(3\pi x) = f(x)$ using our eigenfunctions:
+\[ f(x) = \sin(3\pi x) = \sum\limits_{n=1}^{\infty} f_n\sin(n\pi x). \]
+
+We see that $f_3 = 1$ and $f_n = 0$ otherwise. Similarly, we expand our initial condition $u(x, 0) = \sin(\pi x) = g(x)$ using our eigenvalues:
+\[ g(x) = \sin(\pi x) = \sum\limits_{n=1}^{\infty} g_n\sin(n\pi x). \]
+
+We find that $g_1 = 1$ and $g_n = 0$ otherwise. \\
+
+We can now plug in our constructed solution $u(x, t) = \sum\limits_{n=1}^{\infty} C_n(t) \sin(n\pi x)$ into the original PDE $u_t - ku_{xx} = f(x) = \sin(3\pi x).$ This gives us
+\[ \sum\limits_{n=1}^{\infty}\left[C_n'(t) + k(n\pi)^2 C_n(t) \right]\sin(n\pi x) = \sum\limits_{n=1}^{\infty} f_n \sin(n\pi x). \]
+
+Matching term-by-term and focusing on the coefficients, we get the ODE
+\[ C_n'(t) + k(n\pi)^2 C_n(t) = f_n.\]
+
+Solving this ODE using integrating factors, we get that
+\end{solution}
+
+\begin{enumerate}[(b)]
     \item \textbf{Method 2: Observe that the source term is time-independent. Convert the PDE to a homogeneous PDE for $w = u - u_{ss}$ where $u_{ss}$ is the steady state solution to the PDE.
     (see Remark 4.29 on page 212). Solve the homogeneous PDE for $w$ and recover $u$ as $u = w + u_{ss}$.}
 \end{enumerate}
@@ -146,4 +222,15 @@ in the given problem. \end{solution}
 \newpage
 
 \underline{Chapter 4.4, Exercise 1} \\
+
+\textbf{Consider the pure boundary value problem for Laplace's equation given by}
+\[
+\begin{array}{c}
+    u_{xx} + u_{yy} = 0, \, \, \, 0 < x< l, \, 0 < y < 1 \\
+    u(0, y) =0, \, \, \, u(l, y) = 0, \, \, \, 0 < y < 1 \\
+    u(x, 0) = 0, \, \, \, u(x, 1) = G(x), \, \, \, 0 < x < l.
+\end{array}
+\]
+
+\textbf{Use the separation of variables method to find an infinite series representation of the solution. Here, take $u(x, y) = \phi(x)\phi(y)$ and identify a boundary value problem for $\phi(x)$; proceed as in other separation of variables problems.}
 \end{document}
