@@ -42,7 +42,6 @@
 Following Example 4.28, we homogenize the boundary condition by defining \[ w(x, t) = u(x, t) - \left( 2e^{-t} + \left(1-2e^{-t}\right)x\right).\]
 
 Then $w$ solves the problem 
-
 \[ w_t - 3u_{xx} = 2e^{-t}(1-x), \, \, \, 0 < x < 1, \, t > 0,\]
 \[ w(0, t) = w(1, t), \, \, \, t > 0\]
 \[ w(x, 0) = x^2+x, \, \, \, 0 < x < 1.\]
@@ -127,6 +126,19 @@ Matching term-by-term and focusing on the coefficients, we get the ODE
 \[ C_n'(t) + k(n\pi)^2 C_n(t) = f_n.\]
 
 Solving this ODE using integrating factors, we get that
+\[ C_n(t) = C_n(0)e^{-kn^2\pi^2t} + \int_0^t f_n(\tau)e^{-kn^2\pi^2(t-\tau)} d\tau. \]
+
+Using the initial condition $u(x, 0) = sin(\pi x)$, we have that
+\[ u(x, 0) = \sum\limits_{n=1}^{\infty} C_n(0)\sin(n\pi x) = \sin(\pi x). \]
+
+This tells us that $C_{1}(0) = 1$ and $C_{n}(0) = 0$ otherwise. Combining all of our work together by plugging it back into $u(x, t) = \sum\limits_{n=1}^{\infty} C_n(t) \sin(n\pi x),$ we get that
+
+\begin{align*} u(x, t) &= \sum\limits_{n=1}^{\infty} C_n(t)\sin(n\pi x)  \\
+    &= e^{-k\pi^2 t}\sin(\pi x) + \left( \int_0^t f_3(\tau) e^{-k(3)^2\pi^2(t-\tau)} d\tau\right) \sin(3\pi x) \\
+    &= e^{-k\pi^2 t}\sin(\pi x) + \left(\int_0^t e^{-9k\pi^2(t-\tau)} d\tau\right) \sin(3\pi x) \end{align*}
+
+Simplifying further, we arrive at the solution
+\[ \boxed{u(x, t) = e^{-k\pi^2 t}\sin(\pi x) + \frac{1}{9\pi^2k}\left(1 - e^{-9k\pi^2t}\right) \sin(3\pi x)}.\]
 \end{solution}
 
 \begin{enumerate}[(b)]
@@ -134,6 +146,42 @@ Solving this ODE using integrating factors, we get that
     (see Remark 4.29 on page 212). Solve the homogeneous PDE for $w$ and recover $u$ as $u = w + u_{ss}$.}
 \end{enumerate}
 
+\begin{solution}
+We follow the steps laid out in Remark 4.29. Remark 4.29 tells us that the equilibrium solution must satisfy
+\[ -kU'' = \sin(3\pi x), \, \, \, U(0) = U(1) = 0.\]
+
+Solving using separation of variables, we get that \[U(x) = \frac{1}{9\pi^2 k}\sin(3\pi x).\]
+
+Now, we define $w(x, t) = u(x, t) - U(x) = \sin(\pi x) - \frac{1}{9\pi^2 k} \sin(3\pi x).$ Then $w$ solves the PDE
+\[
+\begin{array}{c}
+w_t - kw_{xx} = 0 \\
+w(0, t) = w(1, t) = 0 \\
+w(x, 0) = \sin(\pi x) - \frac{1}{9\pi^2 k} \sin(3\pi x)
+\end{array}
+\]
+
+We can now solve this using the separation of variables method. We define $w = X(x)T(t)$. As we know, the eigenfunctions for this system are $X_n = \sin(n\pi x)$ corresponding to eigenvalues $\lambda = (n\pi)^2$. \\
+
+Similarly, solving the $T$ ODE which we get from substituting into the PDE, we get that $T=e^{-\lambda t} = e^{-(n\pi)^2t}.$ \\
+
+Using linear superposition, we express our solution as \[ w(x, t) = \sum\limits_{n=1}^{\infty} a_n e^{-(n\pi)^2 t} \sin(n\pi x)\]
+
+for coefficients $a_n$. Using the initial condition $w(x, 0)$, we should have that
+\[ w(x, 0) = \sum\limits_{n=1}^{\infty} C_n \sin(n\pi x) = \sin(\pi x) - \frac{1}{9\pi^2 k} \sin(3\pi x). \]
+
+Matching the coefficients, we get that $C_1 = 1$ and $C_3 = -\frac{1}{9\pi^2k}$, with all other coefficients $0$. Thus, we know that 
+\begin{align*} w(x, t) &= \sum\limits_{n=1}^{\infty} C_n \sin(n\pi x) \\
+    &= \sin(\pi x)e^{-k\pi^2 t} -\frac{1}{9\pi^2 k} \sin(3\pi x) e^{-9k\pi^2 t}.
+\end{align*}
+
+Since our original solution is $u(x, t) = w(x, t) + U(x)$ with $U(x) = \frac{1}{9\pi^2 k} \sin(3\pi x)$, we have that
+\[ u(x, t) = \sin(\pi x)e^{-k\pi^2 t} -\frac{1}{9\pi^2 k} \sin(3\pi x) e^{-9k\pi^2 t} + \frac{1}{9\pi^2 k} \sin(3\pi x).\]
+
+Rearranging and grouping terms, we get the same solution as part (a):
+\[ \boxed{u(x, t) = e^{-k\pi^2 t}\sin(\pi x) + \frac{1}{9\pi^2k}\left(1 - e^{-9k\pi^2t}\right) \sin(3\pi x)}.\]
+
+\end{solution} 
 \newpage
 
 \underline{Chapter 4.2, Exercise 5} \\
@@ -232,5 +280,31 @@ in the given problem. \end{solution}
 \end{array}
 \]
 
-\textbf{Use the separation of variables method to find an infinite series representation of the solution. Here, take $u(x, y) = \phi(x)\phi(y)$ and identify a boundary value problem for $\phi(x)$; proceed as in other separation of variables problems.}
+\textbf{Use the separation of variables method to find an infinite series representation of the solution. Here, take $u(x, y) = \phi(x)\psi(y)$ and identify a boundary value problem for $\phi(x)$; proceed as in other separation of variables problems.}
+
+\begin{solution}
+We will use the separation of variables method to find the solution to the pure boundary value problem. We take $u(x, y) = \phi(x)\psi(y).$ Plugging this into Laplace's equation, we get
+\[ \phi_{xx} \psi + \phi \psi_{yy} = 0.\]
+
+Simplifying, we get that \[ \frac{\phi_{xx}}{\phi} = -\frac{\psi_{yy}}{\psi} = -\lambda. \]
+
+We begin by solving the $\phi$ ODE: $-\phi''=\lambda \phi$ with $x(0) = x(l) = 0$. The eigenfunctions of this ODE are $\phi_n = \sin\left(\frac{n\pi x}{l}\right)$ corresponding to eigenvalues $\lambda_n = \left(\frac{n\pi}{l}\right)^2.$ \\
+
+We will similarly solve the $\psi$ ODE: $-\psi_{yy} + \lambda\psi = 0$, which has eigenfunctions \begin{align*}\psi_n(y) &= c_n e^{-\frac{n\pi}{y}l} + d_n e^{\frac{n\pi}{y}l} \\ 
+&= a_n \cosh \left( \frac{n\pi y}{l}\right) + b_n \sinh \left( \frac{n\pi y}{l}\right).\end{align*}
+
+Thus, we can construct our solution $u(x, y) = \phi(x)\psi(y)$ using linear superposition:
+
+\[ u(x, y) = \sum\limits_{n=1}^{\infty} \left[a_n \cosh \left( \frac{n\pi y}{l}\right) + b_n \sinh \left( \frac{n\pi y}{l}\right)\right] \sin\left(\frac{n\pi x}{l}\right). \]
+
+We are given that $u(x, 0) = 0$, so we know $a_n = 0$. On the other hand, $u(x, 1) = G(x)$, so we have
+
+\[ u(x, 1) = G(x) = \sum\limits_{n=1}^{\infty} \left[b_n \sinh \left( \frac{n\pi y}{l}\right)\right] \sin\left(\frac{n\pi x}{l}\right). \]
+
+Thus, we know that the $b_n \sinh\left( \frac{n\pi}{l}\right)$ coefficients correspond to Fourier sine coefficients, so \[b_n = \frac{2}{l \sinh \left( \frac{n\pi}{l}\right)} \int_0^l G(x) \sin\left(\frac{n\pi x}{l} \right) \, dx. \]
+
+This gives us the solution 
+\[ \boxed{u(x, y) = \sum\limits_{n=1}^{\infty} b_n\sinh\left(\frac{n\pi y}{l}\right) \sin\left(\frac{n\pi y}{l}\right)} \] with the $b_n$ coefficients defined above.
+
+\end{solution}
 \end{document}
