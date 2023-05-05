@@ -44,7 +44,7 @@ Substituting these results into the equation $ \rho_0 (x) u_t u_{tt} = \tau_0 u_
 
 $$ \frac{1}{2} \left(u_t^2\right)_t \rho_0 = \tau_0 \left( (u_tu_x)_x - u_{tx}u_x\right).$$
 
-Integrating both sides of the equation with respect to $x$ and bounds $x=0$ and $x = \ell$, we get that
+Integrating both sides of the equation with respect to $x$ and bounding the integral at $x=0$ and $x = \ell$, we get that
 
 $$ \int_0^{\ell} \frac{1}{2} \left(u_t^2\right)_t \rho_0 \, dx = \tau_0 \int_0^{\ell} (u_tu_x)_x - u_{tx} u_x \, dx.$$
 
@@ -53,7 +53,7 @@ Splitting the integral on the right-hand side into two separate integrals and si
 
 $$ \int_0^{\ell} \frac{1}{2} \left(u_t^2\right)_t \rho_0 \, dx = [\tau_0u_tu_x]_0^{\ell} - \int_0^{\ell} \tau_0u_{tx} u_x \, dx.$$
 
-We can simplify further -- note that we can move $\frac{d}{dt}$ out of the left integral and that $$\int_0^{\ell} \tau_0u_{tx} u_x \, dx = \frac{1}{2} \frac{d}{dt} \int_0^{\ell} u_x^2.$$
+We can simplify further -- note that we can move $\frac{d}{dt}$ out of the left integral and that $$\int_0^{\ell} \tau_0u_{tx} u_x \, dx = \frac{1}{2} \frac{d}{dt} \int_0^{\ell} \tau_0 u_x^2.$$
 
 Substituting these results into the above equation, we get
 $$ \frac{d}{dt} \int_0^{\ell} \frac{1}{2} u_t^2 \rho_0 \, dx = [\tau_0u_tu_x]_0^{\ell} - \frac{1}{2} \frac{d}{dt} \int_0^{\ell} \tau_0u_x^2 \, dx.$$
@@ -61,5 +61,11 @@ $$ \frac{d}{dt} \int_0^{\ell} \frac{1}{2} u_t^2 \rho_0 \, dx = [\tau_0u_tu_x]_0^
 Thus, multiplying both sides by two gives us the desired result:
 $$\frac{d}{dt} \int_{0}^{\ell} \rho_0 u_t^2 \, dx= [2\tau_0u_tu_x]_0^\ell - \frac{d}{dt}  \int_{0}^{\ell} \tau_0 u_x^2 \, dx.$$ 
 
+Going back to the original question, we have that $$E(t) = \int_{0}^{\ell} \left( \frac{1}{2} \rho_0 u_t^2 + \frac{1}{2} \tau_0 u_x^2 \right) \, dx.$$
+
+Thus, taking the derivative of both sides, plugging in our above results, and applying the boundary conditions from Equation 1.40 (since $u(0, t) = u(l, t) = 0$, we also have $u_t(0, t) = u_t(l, t) = 0$), we get that
+$$E'(t) =  \frac{1}{2} \frac{d}{dt} \int_0^{\ell} u_t^2 \rho_0 \, dx + \frac{1}{2} \frac{d}{dt} \int_0^{\ell} \tau_0u_x^2 \, dx = [\tau_0u_tu_x]_0^{\ell} = 0. $$
+
+Thus, the total energy $E(t)$ is constant for all $t \geq 0.$
 \end{solution}
 \end{document}

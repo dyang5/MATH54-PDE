@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+\usepackage{graphics}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage[margin=1in]{geometry}
+
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+  
+\newcommand{\N}{\mathbb{N}}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\setlength\parindent{0pt}
+\begin{document}
+
+	\hrule
+	\begin{center}
+		{\Large Homework 1} \\ % Replace with the homework number
+		\vspace{0.2cm}
+		Partial Differential Equations, Spring 2023 \hfill David Yang % Replace with your name(s)
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\underline{Logan Chapter 1.1, Problem 6} \\
+
+\textbf{Verify that $$u(x, t) = \frac{1}{2c} \int_{x-ct}^{x+ct} g(s) \,ds $$ is a solution to the wave equation $u_{tt} = c^2u_{xx}$, where $c$ is a constant and $g$ is a given continuously differentiable function.} \\
+
+\begin{solution}We will calculate the partial derivatives $u_{tt}$ and $u_{xx}$ separately. We will first calculate $u_t$ and then $u_{tt}.$ Note that $$u_t = \frac{d}{dt} u(x, t) = \frac{d}{dt} \left(\frac{1}{2c} \int_{x-ct}^{x+ct} g(s) \,ds \right).$$
+
+By Leibniz's rule, we know that $$ \frac{d}{dt} \left(\frac{1}{2c} \int_{x-ct}^{x+ct} g(s) \,ds\right) = \frac{1}{2c} \left[g(x+ct) \frac{d}{dt} (x+ct) - g(x-ct)\frac{d}{dt}(x-ct) \right].$$
+
+Simplifying, we find that $$u_t = \frac{1}{2c} \left[g(x+ct) \cdot c + g(x-ct) \cdot c\right] = \frac{g(x+ct) + g(x-ct)}{2}.$$
+
+We can now take the partial of $u_t$ with respect to $t$ to find $u_{tt}$. We get that
+
+$$ u_{tt} = \frac{g'(x+ct)\frac{d}{dt}(x+ct) + g'(x-ct)\frac{d}{dt}(x-ct)}{2} = c \frac{g'(x+ct) - g'(x-ct)}{2}.$$
+
+\vspace{1cm}
+
+We will follow a similar procedure to calculate $u_x$ and $u_{xx}.$ We find that
+
+$$u_x = \frac{d}{dx} u(x, t) = \frac{d}{dx} \left(\frac{1}{2c} \int_{x-ct}^{x+ct} g(s) \,ds \right).$$
+
+Applying Leibniz's Rule, we get that $$ \frac{d}{dx} \left(\frac{1}{2c} \int_{x-ct}^{x+ct} g(s) \,ds \right) = \frac{1}{2c} \left[g(x+ct) \frac{d}{dx} (x+ct) - g(x-ct)\frac{d}{dx}(x-ct) \right].$$
+
+Simplifying, we get that $$u_x =  \frac{g(x+ct) - g(x-ct)}{2c}.$$
+
+Taking the partial of $u_x$ with respect to $x$ to determine $u_{xx}$, we find that $$ u_{xx} = \frac{g'(x+ct)\frac{d}{dx} (x+ct) - g'(x-ct)\frac{d}{dx} (x-ct)}{2c} = \frac{g'(x+ct) - g'(x-ct)}{2c}.$$
+
+We see that $$u_{tt} = c\frac{g'(x+ct)-g'(x-ct)}{2} = c^2 \left(\frac{g'(x+ct) - g'(x-ct)}{2c} \right) = c^2 u_{xx}$$
+
+and so $u_{tt} = c^2u_{xx}$, as desired. \end{solution}
+
+
+\end{document}

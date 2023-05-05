@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+\usepackage{graphics}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage[margin=1in]{geometry}
+
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+  
+\newcommand{\N}{\mathbb{N}}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\setlength\parindent{0pt}
+\begin{document}
+
+	\hrule
+	\begin{center}
+		{\Large Homework 2} \\ % Replace with the homework number
+		\vspace{0.2cm}
+		Partial Differential Equations, Spring 2023 \hfill David Yang % Replace with your name(s)
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\underline{Logan Chapter 1.2, Problem 5} \\
+
+\textbf{Solve the pure initial value problems in the region $x \in \mathbb{R}, \, t > 0$. $$u_t + xtu_x = 0, \, u(x, 0) = f(x)$$ and $$u_t + xu_x = e^t, \, u(x, 0) = f(x).$$} \\
+
+\textit{Part 1}. Solve $u_t + xtu_x = 0, \, u(x, 0) = f(x)$ in the region $x\in \mathbb{R}, t > 0.$
+\begin{solution} 
+Note that this is a first-order quasi-linear partial differential equation, so we can apply the method of characteristics to solve it. \\
+
+Setting up the characteristic ODEs, we have that $$ t_\tau = 1, \, x_\tau = xt, \text { and } U_\tau = e^t$$
+
+with the initial conditions for $\tau = 0$ as $$ t(\tau = 0) = 0, \, x(\tau = 0) = \xi, \text { and } U(\tau = 0) = f(\xi).$$
+
+Solving the first ODE, we have that $$t = \tau.$$ Substituting this into the second ODE, we have that $x_\tau = x\tau$ and so $\frac{1}{x} dx = \tau d\tau.$ Solving for $x$, we get that $x = Ce^{\frac{\tau^2}{2}}.$ \\
+
+Since the initial condition tells us that $x(\tau = 0) = \xi$, we know that $C = \xi$, so our general form for $x$ is $$ x = \xi e^{\frac{\tau^2}{2}}.$$
+
+Finally, solving the third ODE gives us $$U = f(\xi).$$
+
+Now, by inverting the coordinate transformation, we can get back to $xt$ coordinates: $$\xi = xe^{-\frac{t^2}{2}} \text { and } \tau = t.$$
+
+Since $u(x, t) = U(\xi, \tau) = f(\xi)$, where $\xi = xe^{-\frac{t^2}{2}} \text { and } \tau = t$, our  solution to the original PDE is $$\boxed{u(x, t) = f\left(xe^{-\frac{t^2}{2}}\right)}.$$
+
+\end{solution}
+
+\newpage
+
+\textit{Part 2}. Solve $u_t + xu_x = e^t, \, u(x, 0) = f(x)$ in the region $x\in \mathbb{R}, t > 0.$
+\begin{solution} 
+Since this is also a first-order quasi-linear partial differential equation, we can apply the method of characteristics to solve it. \\
+
+Setting up the characteristic ODEs, we have that $$ t_\tau = 1, \, x_\tau = x, \text { and } U_\tau = e^t$$
+
+with the initial conditions for $\tau = 0$ as $$ t(\tau = 0) = 0, \, x(\tau = 0) = \xi, \text { and } U(\tau = 0) = f(\xi).$$
+
+Solving the first ODE with the initial condition, we have that $$t = \tau.$$ 
+
+Solving the second ODE, we have that $x_\tau = x$ and so $\frac{1}{x} dx = d\tau.$ Solving for $x$, we get that $x = Ce^{\tau}.$ With the given initial condition, we must have that $C = \xi$, and so our general form for $x$ is $$x = \xi e^{\tau}.$$
+
+Finally, substituting $t = \tau$ into our third ODE, we get $U_\tau = e^{\tau}.$ Integrating and solving for $U$, we get that $$U = e^{\tau} + C' + f(\xi).$$ Since we are given the initial condition $U(\tau = 0) = f(\xi)$, we must have that $C' = -1.$ Thus, our general form for $U$ is $$U = e^{\tau} - 1 + f(\xi).$$
+
+Now, by inverting the coordinate transformation, we can get back to $xt$ coordinates: $$\xi = xe^{-t} \text { and } \tau = t.$$
+
+Since $u(x, t) = U(\xi, \tau) = e^{\tau} - 1 + f(\xi)$, where $\xi = xe^{-t} \text { and } \tau = t,$ our solution to the original PDE is $$\boxed{u(x, t) = (e^t - 1) + f\left(xe^{-t}\right)}.$$
+
+\end{solution}
+\end{document}
