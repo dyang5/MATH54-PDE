@@ -40,6 +40,9 @@
     \end{ex#1}
 }
 
+\theoremstyle{definition}
+\newtheorem{exmp}{Example}[section]
+
 \newcommand{\N}{\mathbb{N}}
 \setlength\parindent{0pt}
 
@@ -59,8 +62,8 @@
 
 \section{Chapter 1}
 \setcounter{subsection}{1}
-\subsection{Chapter 1, Section 2}
-\begin{exercise}{7} Solve the initial boundary value problem \[u_t+cu_x = \lambda u, \, \, x, t > 0 \]
+\subsection{Chapter 1, Section 2 (1.2)}
+\begin{exercise}{1.2.7} Solve the initial boundary value problem \[u_t+cu_x = \lambda u, \, \, x, t > 0 \]
 \[u(x,0)=0, \, x>0, \, u(0,t)=g(t), \, t > 0.\]
 \end{exercise}
 
@@ -69,7 +72,7 @@ We should find that $\phi(t) = e^{-\lambda t/c} g(\textcolor{red}{-}t/c)$ (notic
 This gives us $u(x, t) = g(t-x/c)e^{-\lambda x/c},$ in $0 \leq x < ct$, which matches the solutions.
 \end{solution}
 
-\begin{exercise}{12} Find a formula that implicitly defines the solution$ u = u(x, t)$ of the initial value problem for the reaction-advection equation
+\begin{exercise}{1.2.12} Find a formula that implicitly defines the solution$ u = u(x, t)$ of the initial value problem for the reaction-advection equation
 \[ u_t + cu_x = -\frac{\alpha u}{\beta + u}, \, \, x \in \mathbb{R}, \, t > 0, \] 
 \[ u(x,0) = f(x), \, \, x \in \mathbb{R} \]
   Here, $v, \alpha, \beta$ are positive constants. Show from the implicit formula that you can always solve for $u$ in terms of $x$ and $t$.
@@ -80,7 +83,7 @@ This gives us $u(x, t) = g(t-x/c)e^{-\lambda x/c},$ in $0 \leq x < ct$, which ma
   \end{solution}
 
 \subsection{Chapter 1, Section 3}
-\begin{exercise}{2}
+\begin{exercise}{1.3.2}
   Let $u = u(x, t)$ satisfy the heat flow model 
   \[ u_t =ku_{xx}, \, \, 0<x<l, \, t>0 \]
   \[ u(0,t) = u(l,t) = 0, \, \, t > 0,\]
@@ -97,7 +100,7 @@ We have that $E(t) \leq E(0) = \int_0^l u_0(x)^{\textcolor{red}{2}} \, dx.$ This
 
 \end{solution}
 
-\begin{exercise}{6}
+\begin{exercise}{1.3.6}
 Heat flow in a metal rod with a unit internal heat source is governed by the problem
 \[u_t=ku_{xx}+1, \, 0<x<1, \, t>0, \]
 \[u(0,t)=0, \, u(1,t)=1, \, t>0. \]
@@ -111,9 +114,9 @@ What will be the steady-state temperature in the bar after a long time? Does it 
 \end{solution}
 
 \setcounter{subsection}{4}
-\subsection{Chapter 1, Section 5}
+\subsection{Chapter 1, Section 5 (1.5)}
 
-\begin{exercise}{5}The total energy of the string governed by equation (1.37) with boundary conditions (1.40) is defined by \[E(t) = \int_{0}^{\ell} \left( \frac{1}{2} \rho_0 u_t^2 + \frac{1}{2} \tau_0 u_x^2 \right) \, dx.\]
+\begin{exercise}{1.5.5}The total energy of the string governed by equation (1.37) with boundary conditions (1.40) is defined by \[E(t) = \int_{0}^{\ell} \left( \frac{1}{2} \rho_0 u_t^2 + \frac{1}{2} \tau_0 u_x^2 \right) \, dx.\]
 Show that the total energy is constant for all $ t \geq 0$. Hint: Multiply (1.37) by $u_t$ and note that $(u_t^2)_t = 2u_tu_{tt}$ and $(u_tu_x)_x = u_tu_{xx} + u_{tx}u_x.$ Then
 show that \[\frac{d}{dt} \int_{0}^{\ell} \rho_0 u_t^2 \, dx= [\textcolor{red}{2}\tau_0u_tu_x]_0^\ell - \frac{d}{dt}  \int_{0}^{\ell} \tau_0 u_x^2 \, dx.\]
 \end{exercise}
@@ -122,7 +125,7 @@ show that \[\frac{d}{dt} \int_{0}^{\ell} \rho_0 u_t^2 \, dx= [\textcolor{red}{2}
 The hint should include an extra factor of $2$ (colored in \textcolor{red}{red}).
 \end{solution}
 
-\begin{exercise}{8}
+\begin{exercise}{1.5.8}
   At the end $(x = 0)$ of a long tube $(x \geq 0)$ the density of air changes according to the formula $\tilde{\rho}(0,t) = 1 - \cos 2t$ for $t \geq 0,$ 
   and $\tilde{\rho}(0,t) = 0$ for $t < 0$. Find a solution to the wave equation in the domain $x>0, -\infty<t< \infty$, in the form of a 
   right-traveling wave that satisfies the given boundary condition. Take $c = 1$ and plot the solution surface.
@@ -134,12 +137,27 @@ We should have that \[\tilde{\rho}(0,t) = F(-ct) = 1- \cos(\textcolor{red}{2}t).
 Notice that the factors of $2$ are inside the $\cos$ term rather than outside (as a coefficient).
 \end{solution}
 
+\newpage
+
 \section{Chapter 2}
 
-\setcounter{subsection}{4}
-\subsection{Chapter 2, Section 5}
+\setcounter{subsection}{1}
+\subsection{Chapter 2, Section 2 (2.2)}
+\begin{exercise}{2.2.3}
+Solve the Cauchy problem
+\[ u_{tt} = c^2u_{xx}, \, \, \, u(x, 0)=\phi(x), \, u_t(x, 0) = 0,\]
+by differentiating the solution to the Cauchy problem
+\[ u_{tt} = c^2u_{xx}, \, \, \, u(x, 0)= 0, \, u_t(x, 0) = \phi(x).\]
+\end{exercise}
 
-\begin{exercise}{1}
+\begin{solution}
+This solution is not available in Logan's solutions, but there is an extra ``to" in the problem statement. The problem statement here is correct.
+\end{solution}
+
+\setcounter{subsection}{4}
+\subsection{Chapter 2, Section 5 (2.5)}
+
+\begin{exercise}{2.5.1}
 Write a formula for the solution to the problem  \[u_{tt} - c^2u_{xx} = \sin(x), \, x \in \mathbb{R}, \, t>0; \, \, \, u(x,0)= u_t(x, 0) = 0, \, x \in \mathbb{R}.\]
   \end{exercise}
   
@@ -148,7 +166,7 @@ Write a formula for the solution to the problem  \[u_{tt} - c^2u_{xx} = \sin(x),
   The solution is \[ u(x, t) = \frac{1}{2c} \int_0^{\infty} \int_{x+c(t-s)}^{x+c(t+s)} \sin(s) \, ds \, \textcolor{red}{dt}. \]
 \end{solution}
 
-\begin{exercise}{3}
+\begin{exercise}{2.5.3}
 Using Duhamel's principle, find a formula for the solution to the initial value problem for the convection equation
 \[u_t +cu_x =f(x,t), \, x \in \mathbb{R}, \, t>0; \, \, \, u(x,0)=0, \, x \in \mathbb{R}.\]
 \end{exercise}
@@ -158,7 +176,7 @@ Using Duhamel's principle, find a formula for the solution to the initial value 
 The solution contains no typos, but should be split into two solutions (pertaining to Exercises 3 and 4.)
 \end{solution}
 
-\begin{exercise}{4}
+\begin{exercise}{2.5.4}
 Solve the problem 
 \[u_t +2u_x = xe^{-t}, \, x \in \mathbb{R}, \, t>0; \, \, \, u(x,0)=0, \, x \in \mathbb{R}.\]
 \end{exercise}
@@ -169,6 +187,75 @@ The given answer of \[u(x, t) = -(x - 2t)(e^{-t} - 1) - 2te^{-t} + 2(1 - e
 \[ u(x, t) = (-x-2)e^{-t} + x - 2t + 2.\]
 \end{solution}
 
+
+\setcounter{subsection}{6}
+\subsection{Chapter 2, Section 7 (2.7)}
+
+\textit{There are also a few minor typos in the problem statements for 2.7.9, 2.7.10, and 2.7.11. Logan writes that the $x$ domain for the PDE is $x \in$, when it should be $x \in \textcolor{red}{\mathbb{R}}.$}
+
+\begin{exercise}{2.7.15}
+Solve the Cauchy problem for the advection-diffusion equation using Fourier transforms:
+\[ u_t = Du_{xx} - cu_x, \, \, \, x\in \mathbb{R}, t > 0; \, \, \, u(x, 0) = \phi(x), \, x \in \mathbb{R}.\]
+\end{exercise}
+
+\begin{solution}
+The solution writes (in the final two lines) that 
+
+\[ \mathcal{F}^{-1}\left( e^{-i\xi ct}e^{-D\xi^2 t}\right) = \frac{1}{\sqrt{4\pi Dt}}e^{-(x+vt)^2/4Dt}. \]
+
+This should actually be \[ \mathcal{F}^{-1}\left( e^{-i\xi ct}e^{-D\xi^2 t}\right) = \frac{1}{\sqrt{4\pi Dt}}e^{-(x\textcolor{red}{-c}t)^2/4Dt}. \]
+Similarly, the desired result after convolution should just be 
+\[ u(x, t) = \phi \star \frac{1}{\sqrt{4\pi Dt}}e^{-(x\textcolor{red}{-c}t)^2/4Dt}. \]
+\end{solution}
+
+
+\begin{exercise}{2.7.18}
+  Use Fourier transforms to derive d'Alembert's solution (2.14) to the Cauchy problem for the wave equations 
+  (2.12)-(2.13) when the initial velocity is zero, i.e., $g(x) \equiv 0$. 
+\end{exercise}
+
+\begin{solution}
+  The problem erroneously states that the PDE is $u_{tt} = c^2u_{xx} = 0$, when it should be $u_{tt} \textcolor{red}{-}c ^2u_{xx} = 0.$ This is a very minor typo.
+\end{solution}
+
+\newpage
+
+\setcounter{section}{3}
+\section{Chapter 4}
+
+\setcounter{subsection}{6}
+
+\subsection{Chapter 4, Section 7 (4.7): Bounded Domains}
+\textbf{Example 4.28.} (Homogenizing the boundary conditions) Consider the problem
+\[
+\begin{array}{c}
+u_{t} - 3u_{xx} = 0, \, \, \, 0 < x < 1, \, t > 0,\\
+u(0, t) = 2e^{-t}, \, \, \, u(1, t) = 1,\\
+u(x, 0) = x^2, \,\,\, 0 < x < 1.
+\end{array}
+\]
+
+\begin{solution}
+We follow the procedure written in the book, taking 
+\[ w(x, t) = u(x, t) - \left(2e^{-t} + \left(1-2e^{-t}\right)x\right).\]
+
+Then $w$ solves the problem
+\[
+\begin{array}{c}
+w_{t} - 3w_{xx} = 2e^{-t}(1-x), \, \, \, 0 < x < 1, \, t > 0,\\
+w(0, t) = w(1, t) = 0, \, t > 0,\\
+w(x, 0) = x^2 + x \text{ } \textcolor{red}{- 2}, \,\,\, 0 < x < 1.
+\end{array}
+\]
+
+Logan writes that $w(x, 0) = x^2 + x$, but notice that
+\begin{align*}
+  w(x, 0) &= u(x, 0) - \left(2e^{-0} + \left(1-2e^{-0}\right)x\right) \\
+  &= u(x, 0) - (2 - x) \\
+  &= x^2 + x - 2.
+\end{align*}
+
+\end{solution}
 \appendix
 
 \newpage
